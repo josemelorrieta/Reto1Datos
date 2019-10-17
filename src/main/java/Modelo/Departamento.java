@@ -4,14 +4,14 @@ public class Departamento {
 	//Declaración e inicialización de atributos:
 	private int codigo;
 	private int nombre;
-	private String localizacion = "Elorrieta-Errekamari.";
+	private Centro localizacion;
 	
 	//Constructor:
 	public Departamento() {
 		
 	}
 
-	public Departamento(int codigo, int nombre, String localizacion) {
+	public Departamento(int codigo, int nombre, Centro localizacion) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -35,11 +35,11 @@ public class Departamento {
 		this.nombre = nombre;
 	}
 
-	public String getLocalizacion() {
+	public Centro getLocalizacion() {
 		return localizacion;
 	}
 
-	public void setLocalizacion(String localizacion) {
+	public void setLocalizacion(Centro localizacion) {
 		this.localizacion = localizacion;
 	}
 	

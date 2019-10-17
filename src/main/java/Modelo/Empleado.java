@@ -8,7 +8,7 @@ public class Empleado {
 	private Cargo cargo;
 	private Departamento departamento;
 	private boolean jefe;
-	private String responsable;
+	private Empleado responsable;
 	
 	//Constructor:
 	public Empleado() {
@@ -16,7 +16,7 @@ public class Empleado {
 	}
 
 	public Empleado(String dni, String nombre, float sueldo, Cargo cargo, Departamento departamento, boolean jefe,
-			String responsable) {
+			Empleado responsable) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -77,11 +77,11 @@ public class Empleado {
 		this.jefe = jefe;
 	}
 
-	public String getResponsable() {
+	public Empleado getResponsable() {
 		return responsable;
 	}
 
-	public void setResponsable(String responsable) {
+	public void setResponsable(Empleado responsable) {
 		this.responsable = responsable;
 	}
 		
