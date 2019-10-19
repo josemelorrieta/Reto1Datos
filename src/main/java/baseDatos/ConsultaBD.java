@@ -1,6 +1,7 @@
 package baseDatos;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
@@ -14,7 +15,13 @@ public class ConsultaBD {
 	private ConsultaBD() {
 		pool = new PoolConexiones();
 		datasource = pool.CrearConexiones();
-		con = null;
+		try {
+			con = datasource.getConnection();
+			System.out.println(con.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public static ConsultaBD getSingletonInstance() {
