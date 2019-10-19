@@ -26,7 +26,7 @@ public class PanelVerDepartamento extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelVerDepartamento() {
-		setPreferredSize(new Dimension(800, 520));
+		setPreferredSize(new Dimension(800, 440));
 		setLayout(null);
 		
 		lblTituloDept = new JLabel(" DEPARTAMENTOS");
@@ -51,7 +51,7 @@ public class PanelVerDepartamento extends JPanel {
 		add(btnAnteriorDept);
 		
 		JTextPane textPaneVerDepart = new JTextPane();
-		textPaneVerDepart.setBounds(299, 81, 438, 419);
+		textPaneVerDepart.setBounds(299, 81, 438, 310);
 		add(textPaneVerDepart);
 		
 		

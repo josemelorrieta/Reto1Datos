@@ -28,95 +28,95 @@ public class PanelAltaEmpleado extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelAltaEmpleado() {
-		setPreferredSize(new Dimension(800, 520));
+		setPreferredSize(new Dimension(800, 440));
 		setLayout(null);
 		
 		lblTituloAltaEmple = new JLabel("FORMULARIO ALTA EMPLEADOS");
-		lblTituloAltaEmple.setBounds(287, 26, 167, 36);
+		lblTituloAltaEmple.setBounds(283, 0, 167, 36);
 		add(lblTituloAltaEmple);
 		
 		lblNCodigoEmple = new JLabel("C\u00F3digo de empleado:");
-		lblNCodigoEmple.setBounds(150, 100, 118, 14);
+		lblNCodigoEmple.setBounds(209, 42, 118, 14);
 		add(lblNCodigoEmple);
 		
 		lblNombreEmple = new JLabel("Nombre:");
-		lblNombreEmple.setBounds(150, 150, 118, 14);
+		lblNombreEmple.setBounds(209, 92, 118, 14);
 		add(lblNombreEmple);
 		
 		lblApellidosEmple = new JLabel("Apellidos:");
-		lblApellidosEmple.setBounds(150, 200, 118, 14);
+		lblApellidosEmple.setBounds(209, 142, 118, 14);
 		add(lblApellidosEmple);
 		
 		lblSueldo = new JLabel("Sueldo:");
 		lblSueldo.setHorizontalAlignment(SwingConstants.LEFT);
-		lblSueldo.setBounds(150, 250, 118, 14);
+		lblSueldo.setBounds(209, 192, 118, 14);
 		add(lblSueldo);
 		
 		lblDepart = new JLabel("Departamento:");
 		lblDepart.setHorizontalAlignment(SwingConstants.LEFT);
-		lblDepart.setBounds(150, 300, 118, 14);
+		lblDepart.setBounds(209, 242, 118, 14);
 		add(lblDepart);
 		
 		lblCargo = new JLabel("Cargo:");
 		lblCargo.setHorizontalAlignment(SwingConstants.LEFT);
-		lblCargo.setBounds(150, 350, 118, 14);
+		lblCargo.setBounds(209, 292, 118, 14);
 		add(lblCargo);
 		
 		lblesJefe = new JLabel("\u00BFEs jefe?");
 		lblesJefe.setHorizontalAlignment(SwingConstants.LEFT);
-		lblesJefe.setBounds(150, 400, 118, 14);
+		lblesJefe.setBounds(209, 342, 118, 14);
 		add(lblesJefe);
 		
 		lblJefeAsignado = new JLabel("Jefe asignado:");
 		lblJefeAsignado.setHorizontalAlignment(SwingConstants.LEFT);
-		lblJefeAsignado.setBounds(150, 450, 118, 14);
+		lblJefeAsignado.setBounds(536, 342, 118, 14);
 		add(lblJefeAsignado);
 		
 		//ComboBoxs
 		
 		comboBoxDepartamentos = new JComboBox();
-		comboBoxDepartamentos.setBounds(300, 300, 150, 20);
+		comboBoxDepartamentos.setBounds(359, 242, 150, 20);
 		add(comboBoxDepartamentos);
 		
 		comboBoxJefeSiNo = new JComboBox();
-		comboBoxJefeSiNo.setBounds(300, 394, 150, 20);
+		comboBoxJefeSiNo.setBounds(359, 336, 150, 20);
 		add(comboBoxJefeSiNo);
 		
 		comboBoxJefeAsignado = new JComboBox();
-		comboBoxJefeAsignado.setBounds(300, 444, 150, 20);
+		comboBoxJefeAsignado.setBounds(617, 339, 150, 20);
 		add(comboBoxJefeAsignado);
 		
 		//TextFields
 		
 		txtCodEmple = new JTextField();
-		txtCodEmple.setBounds(300, 100, 150, 20);
+		txtCodEmple.setBounds(359, 42, 150, 20);
 		add(txtCodEmple);
 		txtCodEmple.setColumns(10);
 		
 		txtNombreEmple = new JTextField();
 		txtNombreEmple.setColumns(10);
-		txtNombreEmple.setBounds(300, 150, 150, 20);
+		txtNombreEmple.setBounds(359, 92, 150, 20);
 		add(txtNombreEmple);
 		
 		txtApellidosEmple = new JTextField();
 		txtApellidosEmple.setColumns(10);
-		txtApellidosEmple.setBounds(300, 200, 150, 20);
+		txtApellidosEmple.setBounds(359, 142, 150, 20);
 		add(txtApellidosEmple);
 		
 		txtSueldo = new JTextField();
 		txtSueldo.setColumns(10);
-		txtSueldo.setBounds(300, 250, 150, 20);
+		txtSueldo.setBounds(359, 192, 150, 20);
 		add(txtSueldo);
 		
 		txtCargo = new JTextField();
 		txtCargo.setColumns(10);
-		txtCargo.setBounds(300, 350, 150, 20);
+		txtCargo.setBounds(359, 292, 150, 20);
 		add(txtCargo);
 		
 		//Buttons
 		
 		btnNewButton = new JButton("Dar de alta empleado");
-		btnNewButton.setBounds(287, 486, 176, 23);
+		btnNewButton.setBounds(283, 388, 176, 23);
 		add(btnNewButton);
 		instanciarObjetos();
 		

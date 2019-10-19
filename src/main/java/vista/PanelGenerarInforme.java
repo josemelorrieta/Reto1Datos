@@ -26,7 +26,7 @@ public class PanelGenerarInforme extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelGenerarInforme() {
-		setPreferredSize(new Dimension(800, 520));
+		setPreferredSize(new Dimension(800, 440));
 		setLayout(null);
 		
 		lblGeneracinDeInformes = new JLabel("GENERACI\u00D3N DE INFORMES");

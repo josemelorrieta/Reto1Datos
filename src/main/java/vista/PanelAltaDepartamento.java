@@ -25,7 +25,7 @@ public class PanelAltaDepartamento extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelAltaDepartamento() {
-		setPreferredSize(new Dimension(800, 520));
+		setPreferredSize(new Dimension(800, 440));
 		setLayout(null);
 		
 		lblTituloAltaDept = new JLabel("FORMULARIO ALTA DEPARTAMENTO");
@@ -61,7 +61,7 @@ public class PanelAltaDepartamento extends JPanel {
 		textLocDepart.setColumns(10);
 		
 		btnDarDeAlta = new JButton("Dar de alta");
-		btnDarDeAlta.setBounds(349, 381, 89, 23);
+		btnDarDeAlta.setBounds(349, 320, 89, 23);
 		add(btnDarDeAlta);
 		
 		

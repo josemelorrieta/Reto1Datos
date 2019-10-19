@@ -26,7 +26,7 @@ public class PanelVerEmpleados extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelVerEmpleados() {
-		setPreferredSize(new Dimension(800, 520));
+		setPreferredSize(new Dimension(800, 440));
 		setLayout(null);
 		
 		lblTituloEmple = new JLabel("EMPLEADOS");
@@ -35,11 +35,11 @@ public class PanelVerEmpleados extends JPanel {
 		instanciarObjetos();
 		
 		btnAnteriorDept = new JButton("Buscar empleado");
-		btnAnteriorDept.setBounds(68, 393, 161, 23);
+		btnAnteriorDept.setBounds(68, 368, 161, 23);
 		add(btnAnteriorDept);
 		
 		textPaneVerEmpleados = new JTextPane();
-		textPaneVerEmpleados.setBounds(299, 81, 438, 419);
+		textPaneVerEmpleados.setBounds(299, 81, 438, 310);
 		add(textPaneVerEmpleados);
 		
 		lblBsquedaPorCdigo = new JLabel("B\u00FAsqueda por c\u00F3digo de empleado:");
