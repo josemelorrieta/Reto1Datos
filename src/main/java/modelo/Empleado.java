@@ -1,7 +1,7 @@
-package Modelo;
+package modelo;
 
 public class Empleado {
-	//Declaración e inicialización de atributos:
+	//Declaraciï¿½n e inicializaciï¿½n de atributos:
 	private String dni;
 	private String nombre;
 	private float sueldo;

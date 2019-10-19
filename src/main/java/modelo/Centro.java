@@ -1,8 +1,8 @@
-package Modelo;
+package modelo;
 
 public class Centro {
 
-	//Declaración e inicialización de atributos:
+	//Declaraciï¿½n e inicializaciï¿½n de atributos:
 	private int codigo;
 	private String nombre;
 	
