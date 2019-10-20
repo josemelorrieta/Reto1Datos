@@ -21,6 +21,8 @@ public class Controlador {
 		initControladores();
 		initListeners();
 		
+		initAplicacion();
+		
 	}
 	
 	private void initControladores() {
@@ -45,6 +47,13 @@ public class Controlador {
 					break;
 			}
 		}
+	}
+	
+	public void initAplicacion() {
+		modelo.centros = modelo.conBD.cargarCentros(Modelo.bd);
+		modelo.cargos = modelo.conBD.cargarCargos(Modelo.bd);
+		modelo.dptos = modelo.conBD.cargarDptosDeFichero(modelo.centros);
+		modelo.empleados = modelo.conBD.cargarEmpleadosDeFichero(modelo.dptos, modelo.cargos);
 	}
 	
 }

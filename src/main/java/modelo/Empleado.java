@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Date;
+
 public class Empleado {
 	//Declaraci�n e inicializaci�n de atributos:
 	private String dni;
@@ -9,6 +11,7 @@ public class Empleado {
 	private Departamento departamento;
 	private boolean jefe;
 	private Empleado responsable;
+	private Date fecha;
 	
 	//Constructor:
 	public Empleado() {
@@ -16,7 +19,7 @@ public class Empleado {
 	}
 
 	public Empleado(String dni, String nombre, float sueldo, Cargo cargo, Departamento departamento, boolean jefe,
-			Empleado responsable) {
+			Empleado responsable, Date fecha) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -25,6 +28,7 @@ public class Empleado {
 		this.departamento = departamento;
 		this.jefe = jefe;
 		this.responsable = responsable;
+		this.fecha = fecha;
 	}
 
 	//getter y setters
@@ -84,7 +88,12 @@ public class Empleado {
 	public void setResponsable(Empleado responsable) {
 		this.responsable = responsable;
 	}
-		
-	
-	
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 }

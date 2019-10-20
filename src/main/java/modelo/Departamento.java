@@ -3,7 +3,7 @@ package modelo;
 public class Departamento {
 	//Declaraci�n e inicializaci�n de atributos:
 	private int codigo;
-	private int nombre;
+	private String nombre;
 	private Centro localizacion;
 	
 	//Constructor:
@@ -11,7 +11,7 @@ public class Departamento {
 		
 	}
 
-	public Departamento(int codigo, int nombre, Centro localizacion) {
+	public Departamento(int codigo, String nombre, Centro localizacion) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -27,11 +27,11 @@ public class Departamento {
 		this.codigo = codigo;
 	}
 
-	public int getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(int nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
