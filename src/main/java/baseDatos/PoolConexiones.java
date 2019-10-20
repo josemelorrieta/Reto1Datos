@@ -18,10 +18,12 @@ public class PoolConexiones {
 		try {
 			propiedades.load(new FileInputStream("datasource_config.properties"));
 		} catch (FileNotFoundException e) {
+			System.out.println(e.getCause());
 			e.printStackTrace();
 			// Añadir a log fichero de datos conexión a base de datos no encontrado 
 			return null;
 		} catch (IOException e) {
+			System.out.println(e.getCause());
 			e.printStackTrace();
 			// Añadir a log fichero de datos conexión a base de datos no encontrado 
 			return null;
@@ -30,6 +32,7 @@ public class PoolConexiones {
 		try {
 			dataSource = BasicDataSourceFactory.createDataSource(propiedades);
 		} catch (Exception e) {
+			System.out.println(e.getCause());
 			e.printStackTrace();
 			// Añadir log error en conexión a base de datos 
 			return null;

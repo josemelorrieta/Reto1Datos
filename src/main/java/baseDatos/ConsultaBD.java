@@ -17,9 +17,8 @@ public class ConsultaBD {
 		datasource = pool.CrearConexiones();
 		try {
 			con = datasource.getConnection();
-			System.out.println(con.toString());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println(e.getCause());
 			e.printStackTrace();
 		}
 	}

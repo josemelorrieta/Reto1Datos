@@ -2,19 +2,17 @@ package vista;
 
 import java.awt.Dimension;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class PanelAltaDepartamento extends JPanel {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 6L;
 	
 	public  JLabel lblTituloAltaDept, lblCdigoDeDepartamento, lblNombre, lblLocalizacin;
 	public JTextField txtCodDepart, texNombreDepart, textLocDepart;

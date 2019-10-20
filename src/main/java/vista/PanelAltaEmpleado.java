@@ -16,7 +16,7 @@ public class PanelAltaEmpleado extends JPanel {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 7L;
 	
 	public  JLabel lblTituloAltaEmple, lblNCodigoEmple,lblNombreEmple, lblApellidosEmple,lblSueldo, lblDepart, lblCargo, lblesJefe, lblJefeAsignado ;
 	public JTextField txtCodEmple,txtNombreEmple, txtApellidosEmple, txtSueldo, txtCargo;

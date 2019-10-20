@@ -15,7 +15,7 @@ public class PanelVerDepartamento extends JPanel {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 8L;
 	
 	public  JLabel lblTituloDept;
 	public JButton btnVerUltimo, btnIrAlPrimer, btnSiguienteDept, btnAnteriorDept;

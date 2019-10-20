@@ -15,7 +15,7 @@ public class PanelVerEmpleados extends JPanel {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 9L;
 	
 	public  JLabel lblTituloEmple, lblBsquedaPorCdigo, lblBsquedaPorNombre, lblnombre, lblapellidos;
 	public JButton btnAnteriorDept;
