@@ -54,6 +54,7 @@ public class Controlador {
 		modelo.cargos = modelo.conBD.cargarCargos(Modelo.bd);
 		modelo.dptos = modelo.conBD.cargarDptosDeFichero(modelo.centros);
 		modelo.empleados = modelo.conBD.cargarEmpleadosDeFichero(modelo.dptos, modelo.cargos);
+		//inicializarTablas(modelo);
 	}
 	
 }
