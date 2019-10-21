@@ -51,7 +51,7 @@ public class ConexionBD {
 	
 	public ArrayList<Departamento> cargarDptosDeFichero(Centro[] centros) {
 		ArrayList<Departamento> dptos = new ArrayList<Departamento>();
-		File fichero = new File("C:\\Temp\\Ficheros\\Departamentos.csv");
+		File fichero = new File("Departamentos.csv");
 		if (fichero != null) {
 			final String SEPARADOR = ";";
 			Departamento dpto = null;
@@ -157,7 +157,7 @@ public class ConexionBD {
 		
 		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 				
-		File fichero = new File("C:\\Temp\\Ficheros\\Empleados.xml");
+		File fichero = new File("Empleados.xml");
 		if (fichero != null) {
 		    try {
 		        SAXParser saxParser = saxParserFactory.newSAXParser();
