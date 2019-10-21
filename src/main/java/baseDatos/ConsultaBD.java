@@ -145,4 +145,28 @@ public class ConsultaBD {
 		query = (query.substring(0, query.length() - 1)) + ");";
 		return query;
 	}
+	
+	public boolean guardarDepartamentos(ArrayList<Departamento> dptos) {
+		String query;
+		try {
+			con = datasource.getConnection();
+			
+			query = "insert into Departamento values(";
+			for (int i=0; i<dptos.size();i++) {
+				query += "?,";
+			}
+			query = query.substring(0, query.length() - 1) + ");";
+			
+			PreparedStatement statement = con.prepareStatement(query);
+			statement.setString(1, dptos.get(0).getCodigo());
+			statement.setString(2, dptos.get(0).getNombre());
+			statement.setInt(3, dptos.get(0).getLocalizacion().getCodigo());
+			statement.execute();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
 }
