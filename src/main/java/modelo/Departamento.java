@@ -2,7 +2,7 @@ package modelo;
 
 public class Departamento {
 	//Declaraci�n e inicializaci�n de atributos:
-	private String codigo;
+	private int codigo;
 	private String nombre;
 	private Centro localizacion;
 	
@@ -11,7 +11,7 @@ public class Departamento {
 		
 	}
 
-	public Departamento(String codigo, String nombre, Centro localizacion) {
+	public Departamento(int codigo, String nombre, Centro localizacion) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -19,11 +19,11 @@ public class Departamento {
 	}
 	
 	//getter y setters
-	public String getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 

@@ -3,27 +3,30 @@
 		<dni>12345678Z</dni>
 		<nombre>Gerardo Pérez</nombre>
 		<sueldo>50000</sueldo>
-		<cargo>Director</cargo>
+		<cargo>C001</cargo>
 		<departamento>1</departamento>
 		<jefe>1</jefe>
 		<responsable></responsable>
+		<fecha>2019-10-21</fecha>
 	</empleado>
 	<empleado>
 		<dni>87654321X</dni>
 		<nombre>María del Monte</nombre>
 		<sueldo>40000</sueldo>
-		<cargo>Jefe de estudios</cargo>
+		<cargo>C002</cargo>
 		<departamento>2</departamento>
 		<jefe>1</jefe>
 		<responsable>12345678Z</responsable>
+		<fecha>2019-10-21</fecha>
 	</empleado>
 	<empleado>
 		<dni>13245768E</dni>
 		<nombre>Pedro Piqueras</nombre>
 		<sueldo>25000</sueldo>
-		<cargo>Secretario</cargo>
+		<cargo>C003</cargo>
 		<departamento>1</departamento>
 		<jefe>0</jefe>
 		<responsable>12345678Z</responsable>
+		<fecha>2019-10-21</fecha>
 	</empleado>
 </empleados>

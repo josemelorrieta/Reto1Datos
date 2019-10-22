@@ -80,7 +80,7 @@ public class ConexionBD {
 	
 					if (!campos[0].equals("Departamento")) {
 						dpto = new Departamento();
-						dpto.setCodigo(campos[0]);
+						dpto.setCodigo(Integer.parseInt(campos[0]));
 						dpto.setNombre(campos[1]);
 						Centro centro = buscarCentro(centros, Integer.parseInt(campos[2]));
 						if (centro != null) {
@@ -143,7 +143,7 @@ public class ConexionBD {
 		Departamento dpto = null;
 		
 		for (int i=0;i<dptos.size();i++) {
-			if (dptos.get(i).getCodigo().equals(codDpto)) {
+			if (dptos.get(i).getCodigo() == codDpto) {
 				dpto = dptos.get(i);
 				break;
 			}
@@ -174,15 +174,21 @@ public class ConexionBD {
 		return empleados;
 	}
 	
-	public Boolean inicializarTablas(Modelo modelo) {
+	public int inicializarTablas(Modelo modelo) {
 		//Departamento[] departamentos = modelo.dptos.toArray(new Departamento[modelo.dptos.size()]); 
+		int resultadoDptos = 0;
+		int resultadoEmple = 0;
 		
-		if (modelo.bd.guardarDepartamentos(modelo.dptos)) {
-
-			return true;
+		resultadoDptos = modelo.bd.guardarDepartamentos(modelo.dptos);
+		resultadoEmple = modelo.bd.guardarEmpleados(modelo.empleados);
+		
+		if (resultadoDptos == 1 && resultadoEmple == 1) {
+			return 1;
+		} else if (resultadoDptos == 0 || resultadoEmple == 0) {
+			return 0;
 		} else {
-			return false;
-		}	
+			return 2;
+		}
 	}
 
 }

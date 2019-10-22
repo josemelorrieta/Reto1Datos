@@ -54,10 +54,15 @@ public class Controlador {
 		modelo.cargos = modelo.conBD.cargarCargos(Modelo.bd);
 		modelo.dptos = modelo.conBD.cargarDptosDeFichero(modelo.centros);
 		modelo.empleados = modelo.conBD.cargarEmpleadosDeFichero(modelo.dptos, modelo.cargos);
-		if (modelo.conBD.inicializarTablas(modelo)) {
-			System.out.println("Tablas cargadas");
-		} else {
-			System.out.println("Error al cargar tablas");
+		switch (modelo.conBD.inicializarTablas(modelo)) {
+			case 0:
+				System.out.println("Error al cargar tablas");
+				break;
+			case 1:
+				System.out.println("Tablas cargadas");
+				break;
+			case 2:
+				System.out.println("Entradas duplicadas en tablas no se cargaron");
 		}
 	}
 	
