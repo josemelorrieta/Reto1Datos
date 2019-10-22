@@ -18,7 +18,7 @@ public class XMLHandler extends DefaultHandler {
 	private ConexionBD conBD;
 	private Departamento dpto;
 	private ArrayList<Departamento> dptos;
-	private SimpleDateFormat formatter = new SimpleDateFormat("YYYY-mm-dd"); 
+	private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
 	
    private ArrayList<Empleado> empleados = new ArrayList<Empleado>(); 
    

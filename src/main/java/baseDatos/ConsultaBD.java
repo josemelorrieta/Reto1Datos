@@ -191,7 +191,7 @@ public class ConsultaBD {
 	public int guardarEmpleados(ArrayList<Empleado> empleados) {
 		PreparedStatement statement;
 		String query;
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+		//SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		
 		int resultado = 1;
 		try {
@@ -218,7 +218,8 @@ public class ConsultaBD {
 					} else {
 						statement.setString(7, empleados.get(i).getResponsable().getDni());
 					}
-					statement.setString(8, formatter.format(empleados.get(i).getFecha()));
+					//statement.setString(8, formatter.format(empleados.get(i).getFecha()));
+					statement.setDate(8, new java.sql.Date((empleados.get(i).getFecha()).getTime()));
 					
 					statement.execute();
 				} catch (SQLIntegrityConstraintViolationException e) {
