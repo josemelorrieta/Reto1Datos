@@ -86,71 +86,8 @@ public class ConsultaBD {
 		}
 	}
 	
-	public boolean insertGenerico(Object[] objetos, String nombreTabla) {
-		try {
-			con = datasource.getConnection();
-			Class[] clasesObj = arrayClases(objetos);
-			String query = prepararQuery(objetos.length, nombreTabla);
-			PreparedStatement statementGenerico = generarStatement(objetos, clasesObj, query);
-			if (statementGenerico != null) {
-				statementGenerico.execute();
-			}
-			return true;
-		} catch (SQLException e1) {
-			return false;
-		} finally {
-			try {
-				if (con != null)
-					con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-		
-	public PreparedStatement generarStatement(Object[] objetos, Class[] clases, String query) {
-		try {
-			PreparedStatement statementGenerico = this.con.prepareStatement(query);
-			for (int i = 0; i < objetos.length; i++) {
-				if (clases[i] == String.class) {
-					statementGenerico.setString(i + 1, (String) objetos[i]);
-				} else if (clases[i] == Float.class) {
-					statementGenerico.setFloat(i + 1, (Float) objetos[i]);
-				} else if (clases[i] == Double.class) {
-					statementGenerico.setDouble(i + 1, (Double) objetos[i]);
-				} else if (clases[i] == Integer.class) {
-					statementGenerico.setInt(i + 1, (int) objetos[i]);
-				} else if (clases[i] == java.util.Date.class) {
-					statementGenerico.setDate(i + 1, new java.sql.Date(((java.util.Date) objetos[i]).getTime()));
-				} else {
-					statementGenerico.setString(i + 1, (String) objetos[i]);
-				}
-			}
-			return statementGenerico;
-		} catch (SQLException e) {
-			return null;
-		}
-	}
-	
-	public Class[] arrayClases(Object[] objetos) {
-		Class[] clasesObj = new Class[objetos.length];
-		for (int i = 0; i < objetos.length; i++) {
-			clasesObj[i] = objetos[i].getClass();
-		}
-		return clasesObj;
-	}
-	
-	public String prepararQuery(int num, String tabla) {
-		String query = "insert into " + tabla + " values(";
-		for (int i = 0; i < num; i++) {
-			query += "?,";
-		}
-		query = (query.substring(0, query.length() - 1)) + ");";
-		return query;
-	}
-	
 	public int guardarDepartamentos(ArrayList<Departamento> dptos) {
-		PreparedStatement statement;
+		PreparedStatement statement = null;
 		String query;
 		int resultado = 1;
 		try {
@@ -218,12 +155,10 @@ public class ConsultaBD {
 					} else {
 						statement.setString(7, empleados.get(i).getResponsable().getDni());
 					}
-					//statement.setString(8, formatter.format(empleados.get(i).getFecha()));
 					statement.setDate(8, new java.sql.Date((empleados.get(i).getFecha()).getTime()));
 					
 					statement.execute();
 				} catch (SQLIntegrityConstraintViolationException e) {
-					//TODO
 					// Escribir en el log entrada duplicada
 					resultado = 2;
 				}
