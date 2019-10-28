@@ -29,18 +29,14 @@ public class ControladorMenu {
 			opcion = e.getActionCommand();
 			
 			switch (opcion) {
-				case "altaDepart":
-					vista.pCentral.card.show(vista.pCentral, "2");
+				case "gestDepart":
+					vista.pCentral.changePanel("2");
 					break;
-				case "altaEmple": 
-					vista.pCentral.changePanel("3");
-					break;
-				case "verDepart":
-					break;
-				case "verEmple":
+				case "gestEmple": 
+					vista.pCentral.changePanel("5");
 					break;
 				case "informes":
-					vista.pCentral.changePanel("6");
+					vista.pCentral.changePanel("8");
 					break;
 				
 			}

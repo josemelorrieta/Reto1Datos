@@ -31,12 +31,12 @@ public class PanelMenu extends JPanel {
 		
 		btnGestionDepart = new JButton("Gestión de departamentos");
 		btnGestionDepart.setBounds(275, 120, 250, 25);
-		btnGestionDepart.setActionCommand("altaDepart");
+		btnGestionDepart.setActionCommand("gestDepart");
 		add(btnGestionDepart);
 		
 		btnGestionEmple = new JButton("Gestión de empleados");
 		btnGestionEmple.setBounds(275, 180, 250, 25);
-		btnGestionEmple.setActionCommand("altaEmple");
+		btnGestionEmple.setActionCommand("gestEmple");
 		add(btnGestionEmple);
 		
 		btnGestionInfor = new JButton("Gestión de informes");

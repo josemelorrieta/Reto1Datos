@@ -16,6 +16,7 @@ public class PanelCentral extends JPanel {
 	public int currentIndex;
 	
 	public PanelMenu pMenu;
+	public PanelGestionDepartamentos pGestionDptos;
 	public PanelAltaDepartamento pAltaDepart;
 	public PanelAltaEmpleado pAltaEmpleado;
 	public PanelVerDepartamento pVerDepart;
@@ -35,20 +36,23 @@ public class PanelCentral extends JPanel {
 		pMenu = new PanelMenu();
 		add(pMenu, "1");
 		
-		pAltaDepart = new PanelAltaDepartamento();
-		add(pAltaDepart, "2");
+		pGestionDptos = new PanelGestionDepartamentos();
+		add(pGestionDptos, "2");
 		
-		pAltaEmpleado = new PanelAltaEmpleado();
-		add(pAltaEmpleado, "3");
+		pAltaDepart = new PanelAltaDepartamento();
+		add(pAltaDepart, "3");
 		
 		pVerDepart = new PanelVerDepartamento();
 		add(pVerDepart, "4");
 		
+		pAltaEmpleado = new PanelAltaEmpleado();
+		add(pAltaEmpleado, "6");
+		
 		pVerEmple = new PanelVerEmpleados();
-		add(pVerEmple, "5");
+		add(pVerEmple, "7");
 		
 		pInformes = new PanelGenerarInforme();
-		add(pInformes, "6");
+		add(pInformes, "8");
 	}
 	
 	public void prevPanel() {
@@ -67,8 +71,17 @@ public class PanelCentral extends JPanel {
 	}
 	
 	public void changePanel(String index) {
-		card.show(this, index);
-		currentIndex = Integer.parseInt(index);
+		this.card.show(this, index);
+		this.currentIndex = Integer.parseInt(index);
 	}
+
+	public int getCurrentIndex() {
+		return currentIndex;
+	}
+
+	public void setCurrentIndex(int currentIndex) {
+		this.currentIndex = currentIndex;
+	}
+
 
 }

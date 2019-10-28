@@ -13,6 +13,7 @@ public class Controlador {
 	private String origen;
 	
 	private ControladorMenu cMenu;
+	private ControladorGestionDepartamentos cGestDptos;
 	
 	public Controlador (VentanaPpal vista, Modelo modelo) {
 		this.vista = vista;
@@ -27,6 +28,7 @@ public class Controlador {
 	
 	private void initControladores() {
 		cMenu = new ControladorMenu(vista);
+		cGestDptos = new ControladorGestionDepartamentos(vista);
 	}
 
 	private void initListeners() {
@@ -41,7 +43,20 @@ public class Controlador {
 			
 			switch (origen) {
 				case "ATRAS":
-					vista.pCentral.card.first(vista.pCentral);
+					if (vista.pCentral.currentIndex == 2)
+						vista.pCentral.changePanel("1");
+					if (vista.pCentral.currentIndex == 3)
+						vista.pCentral.changePanel("2");
+					if (vista.pCentral.currentIndex == 4)
+						vista.pCentral.changePanel("2");
+					if (vista.pCentral.currentIndex == 5)
+						vista.pCentral.changePanel("1");
+					if (vista.pCentral.currentIndex == 6)
+						vista.pCentral.changePanel("5");
+					if (vista.pCentral.currentIndex == 7)
+						vista.pCentral.changePanel("5");
+					if (vista.pCentral.currentIndex == 8)
+						vista.pCentral.changePanel("1");
 					break;
 				case "SIGUIENTE":
 					break;
