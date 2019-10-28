@@ -9,6 +9,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
+import javax.swing.JList;
 
 public class PanelVerDepartamento extends JPanel {
 
@@ -18,8 +19,12 @@ public class PanelVerDepartamento extends JPanel {
 	private static final long serialVersionUID = 8L;
 	
 	public  JLabel lblTituloDept;
-	public JButton btnVerUltimo, btnIrAlPrimer, btnSiguienteDept, btnAnteriorDept;
-
+	public JLabel lblCodigo, lblNombre, lblLocalizacion;
+	private JTextField txtCodigo, txtNombre, txtLocalizacion;
+	private JButton btnPrimero;
+	private JButton btnAnterior;
+	private JButton btnSiguiente;
+	private JButton btnUltimo;
 
 
 	/**
@@ -29,32 +34,65 @@ public class PanelVerDepartamento extends JPanel {
 		setPreferredSize(new Dimension(800, 440));
 		setLayout(null);
 		
-		lblTituloDept = new JLabel(" DEPARTAMENTOS");
-		lblTituloDept.setBounds(299, 25, 97, 36);
+		lblTituloDept = new JLabel(" Departamentos");
+		lblTituloDept.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTituloDept.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblTituloDept.setBounds(0, 11, 800, 36);
 		add(lblTituloDept);
+		
+		lblCodigo = new JLabel("Código");
+		lblCodigo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCodigo.setBounds(270, 148, 100, 30);
+		add(lblCodigo);
+		
+		lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNombre.setBounds(270, 188, 100, 30);
+		add(lblNombre);
+		
+		lblLocalizacion = new JLabel("Localización");
+		lblLocalizacion.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblLocalizacion.setBounds(270, 228, 100, 30);
+		add(lblLocalizacion);
+		
+		txtCodigo = new JTextField();
+		txtCodigo.setBounds(370, 148, 86, 30);
+		add(txtCodigo);
+		txtCodigo.setColumns(10);
 		instanciarObjetos();
 		
-		btnVerUltimo = new JButton("Ir al \u00FAltimo departamento");
-		btnVerUltimo.setBounds(57, 81, 161, 23);
-		add(btnVerUltimo);
+		txtNombre = new JTextField();
+		txtNombre.setBounds(370, 188, 230, 30);
+		add(txtNombre);
+		txtNombre.setColumns(10);
+		instanciarObjetos();
 		
-		btnIrAlPrimer = new JButton("Ir al primer departamento");
-		btnIrAlPrimer.setBounds(57, 108, 161, 23);
-		add(btnIrAlPrimer);
+		txtLocalizacion = new JTextField();
+		txtLocalizacion.setBounds(370, 228, 230, 30);
+		add(txtLocalizacion);
+		txtLocalizacion.setColumns(10);
 		
-		btnSiguienteDept = new JButton("Siguiente departamento");
-		btnSiguienteDept.setBounds(57, 131, 161, 23);
-		add(btnSiguienteDept);
+		btnPrimero = new JButton("Primero");
+		btnPrimero.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnPrimero.setBounds(110, 80, 130, 30);
+		add(btnPrimero);
 		
-		btnAnteriorDept = new JButton("Anterior departamento");
-		btnAnteriorDept.setBounds(57, 155, 161, 23);
-		add(btnAnteriorDept);
+		btnAnterior = new JButton("Anterior");
+		btnAnterior.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAnterior.setBounds(260, 82, 130, 30);
+		add(btnAnterior);
 		
-		JTextPane textPaneVerDepart = new JTextPane();
-		textPaneVerDepart.setBounds(299, 81, 438, 310);
-		add(textPaneVerDepart);
+		btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnSiguiente.setBounds(410, 82, 130, 30);
+		add(btnSiguiente);
 		
-		
+		btnUltimo = new JButton("Último");
+		btnUltimo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnUltimo.setBounds(560, 82, 130, 30);
+		add(btnUltimo);
+		instanciarObjetos();
+
 	}
 	
 	private void instanciarObjetos() {
