@@ -20,11 +20,11 @@ public class PanelVerDepartamento extends JPanel {
 	
 	public  JLabel lblTituloDept;
 	public JLabel lblCodigo, lblNombre, lblLocalizacion;
-	private JTextField txtCodigo, txtNombre, txtLocalizacion;
-	private JButton btnPrimero;
-	private JButton btnAnterior;
-	private JButton btnSiguiente;
-	private JButton btnUltimo;
+	public JTextField txtCodigo, txtNombre, txtLocalizacion;
+	public JButton btnPrimero;
+	public JButton btnAnterior;
+	public JButton btnSiguiente;
+	public JButton btnUltimo;
 
 
 	/**
@@ -75,21 +75,25 @@ public class PanelVerDepartamento extends JPanel {
 		btnPrimero = new JButton("Primero");
 		btnPrimero.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnPrimero.setBounds(110, 80, 130, 30);
+		btnPrimero.setActionCommand("primero");
 		add(btnPrimero);
 		
 		btnAnterior = new JButton("Anterior");
 		btnAnterior.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAnterior.setBounds(260, 82, 130, 30);
+		btnAnterior.setActionCommand("anterior");
 		add(btnAnterior);
 		
 		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSiguiente.setBounds(410, 82, 130, 30);
+		btnSiguiente.setActionCommand("siguiente");
 		add(btnSiguiente);
 		
 		btnUltimo = new JButton("Último");
 		btnUltimo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnUltimo.setBounds(560, 82, 130, 30);
+		btnUltimo.setActionCommand("ultimo");
 		add(btnUltimo);
 		instanciarObjetos();
 

@@ -7,9 +7,11 @@ import vista.VentanaPpal;
 
 public class ControladorGestionDepartamentos {
 	private VentanaPpal vista;
+	public Controlador controlador;
 	
-	public ControladorGestionDepartamentos(VentanaPpal vista) {
+	public ControladorGestionDepartamentos(VentanaPpal vista, Controlador controlador) {
 		this.vista = vista;
+		this.controlador = controlador;
 		
 		initListeners();
 	}
@@ -29,6 +31,7 @@ public class ControladorGestionDepartamentos {
 				break;
 			case "verDpto":
 				vista.pCentral.changePanel("4");
+				controlador.cVerDpto.cambiarDpto(0);
 				break;
 			}
 			
