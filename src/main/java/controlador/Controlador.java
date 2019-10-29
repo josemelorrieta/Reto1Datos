@@ -72,6 +72,7 @@ public class Controlador {
 	}
 	
 	public void initAplicacion() {
+		// Cargar datos iniciales de fichero
 		modelo.centros = modelo.conBD.cargarCentros(Modelo.bd);
 		modelo.cargos = modelo.conBD.cargarCargos(Modelo.bd);
 		modelo.dptos = modelo.conBD.cargarDptosDeFichero(modelo.centros);
@@ -86,6 +87,15 @@ public class Controlador {
 			case 2:
 				System.out.println("Entradas duplicadas en tablas no se cargaron");
 		}
+		
+		// Cargar datos de BD en modelo
+		modelo.dptos.clear();
+		modelo.empleados.clear();
+		
+		modelo.dptos = modelo.conBD.cargarDptos(Modelo.bd, modelo.centros);
+		modelo.empleados = modelo.conBD.cargarEmpleados(Modelo.bd, modelo.cargos, modelo.dptos);
+		//fijar responsables a los empleados
+		// ojo al desplegable de centros que no se limpia
 	}
 	
 }

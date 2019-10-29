@@ -84,12 +84,12 @@ public class XMLHandler extends DefaultHandler {
 	   			  }	   			  
 	   		  }
 	   		break;
-	   	  case "fecha": try {
+	   	  /*case "fecha": try {
 	   		  empleado.setFecha(formatter.parse(valor));
 	   	  	} catch (ParseException e) {
 				e.printStackTrace();
 			}
-	   	  	break;
+	   	  	break;*/
 	   	  case "empleado":
 	   		  empleados.add(empleado);
 	   }

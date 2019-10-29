@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.sql.DataSource;
 
@@ -155,7 +155,7 @@ public class ConsultaBD {
 					} else {
 						statement.setString(7, empleados.get(i).getResponsable().getDni());
 					}
-					statement.setDate(8, new java.sql.Date((empleados.get(i).getFecha()).getTime()));
+					statement.setDate(8, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
 					
 					statement.execute();
 				} catch (SQLIntegrityConstraintViolationException e) {

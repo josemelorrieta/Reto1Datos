@@ -7,7 +7,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -16,6 +19,7 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.SAXException;
 
 import com.google.gson.Gson;
+
 import baseDatos.ConsultaBD;
 
 public class ConexionBD {
@@ -47,6 +51,73 @@ public class ConexionBD {
 		cargos = gson.fromJson(json, Cargo[].class);
 		
 		return cargos;
+	}
+	
+	public ArrayList<Departamento> cargarDptos(ConsultaBD conBD, Centro[] centros) {
+		DepartamentoBD[] arrayDptos;
+		Centro centro = null;
+		
+		String json = conBD.consultarToGson("SELECT * FROM departamento");
+		arrayDptos = gson.fromJson(json, DepartamentoBD[].class);
+		
+		ArrayList<Departamento> dptos = new ArrayList<Departamento>();
+		
+		for (DepartamentoBD dpto: arrayDptos) {
+			for  (int i=0;i<centros.length;i++) {
+				if (centros[i].getCodigo() == dpto.getLocalizacion()) {
+					centro = centros[i];
+				}
+			}
+			
+			dptos.add(new Departamento(dpto.getCodigo(), dpto.getNombre(), centro));
+		}
+		
+		return dptos;		
+	}
+	
+	public ArrayList<Empleado> cargarEmpleados(ConsultaBD conBD, Cargo[] cargos, ArrayList<Departamento> departamentos) {
+		EmpleadoBD[] arrayEmpleados;
+		Cargo cargo = null;
+		Departamento departamento = null;
+		boolean esJefe = false;
+		Date fecha = null;
+		SimpleDateFormat formatter = new SimpleDateFormat("YYYY-mm-dd");
+		
+		String json = conBD.consultarToGson("SELECT * FROM empleado");
+		arrayEmpleados = gson.fromJson(json, EmpleadoBD[].class);
+		
+		ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+		
+		for (EmpleadoBD emple: arrayEmpleados) {
+			for (int i=0;i<cargos.length;i++) {
+				if (cargos[i].getCodigo().equals(emple.getCargo())) {
+					cargo = cargos[i];
+				}
+			}
+			
+			for (int i=0;i<departamentos.size();i++) {
+				if (departamentos.get(i).getCodigo() == emple.getDepartamento()) {
+					departamento = departamentos.get(i);
+				}
+			}
+			
+			if (emple.getJefe() == 1) {
+				esJefe = true;
+			} else {
+				esJefe = false;
+			}
+			
+			try {
+				fecha = formatter.parse(emple.getFecha());
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			
+			empleados.add(new Empleado(emple.getDni(), emple.getNombre(), emple.getSueldo(), cargo, departamento, esJefe, null, fecha));	
+		}
+		
+		
+		return empleados;		
 	}
 	
 	public ArrayList<Departamento> cargarDptosDeFichero(Centro[] centros) {
