@@ -30,16 +30,18 @@ public class PanelGenerarInforme extends JPanel {
 		setLayout(null);
 		
 		lblGeneracinDeInformes = new JLabel("GENERACI\u00D3N DE INFORMES");
-		lblGeneracinDeInformes.setBounds(301, 44, 148, 36);
+		lblGeneracinDeInformes.setBounds(317, 43, 176, 36);
 		add(lblGeneracinDeInformes);
 		instanciarObjetos();
 		
 		btnGenerarInformeDepart = new JButton("Generar informe departamentos");
 		btnGenerarInformeDepart.setBounds(256, 134, 237, 23);
+		btnGenerarInformeDepart.setActionCommand("informeDepart");
 		add(btnGenerarInformeDepart);
 		
 		btnGenerarInformeEmple = new JButton("Generar informe empleados");
 		btnGenerarInformeEmple.setBounds(256, 220, 237, 23);
+		btnGenerarInformeEmple.setActionCommand("informeEmple");
 		add(btnGenerarInformeEmple);
 		
 		
