@@ -28,6 +28,7 @@ public class ControladorGestionDepartamentos {
 			switch (e.getActionCommand()) {
 			case "altaDpto":
 				vista.pCentral.changePanel("3");
+				controlador.cAltaDpto.initAltaDpto();
 				break;
 			case "verDpto":
 				vista.pCentral.changePanel("4");

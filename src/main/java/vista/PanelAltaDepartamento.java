@@ -6,6 +6,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JSpinner;
+import javax.swing.JComboBox;
 
 public class PanelAltaDepartamento extends JPanel {
 
@@ -14,9 +18,10 @@ public class PanelAltaDepartamento extends JPanel {
 	 */
 	private static final long serialVersionUID = 6L;
 	
-	public  JLabel lblTituloAltaDept, lblCdigoDeDepartamento, lblNombre, lblLocalizacin;
-	public JTextField txtCodDepart, texNombreDepart, textLocDepart;
+	public  JLabel lblTituloAltaDept, lblCodDpto, lblNombre, lblLocalizacion;
+	public JTextField txtCodDpto, txtNombreDpto;
 	public JButton btnDarDeAlta;
+	public JComboBox<String> cmbLocalizacion;
 
 
 	/**
@@ -26,46 +31,49 @@ public class PanelAltaDepartamento extends JPanel {
 		setPreferredSize(new Dimension(800, 440));
 		setLayout(null);
 		
-		lblTituloAltaDept = new JLabel("FORMULARIO ALTA DEPARTAMENTO");
-		lblTituloAltaDept.setBounds(293, 73, 192, 36);
-		add(lblTituloAltaDept);
 		instanciarObjetos();
-		
-		lblCdigoDeDepartamento = new JLabel("C\u00F3digo de departamento:");
-		lblCdigoDeDepartamento.setBounds(253, 156, 132, 26);
-		add(lblCdigoDeDepartamento);
-		
-		lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(253, 206, 46, 14);
-		add(lblNombre);
-		
-		lblLocalizacin = new JLabel("Localizaci\u00F3n:");
-		lblLocalizacin.setBounds(253, 256, 85, 14);
-		add(lblLocalizacin);
-		
-		txtCodDepart = new JTextField();
-		txtCodDepart.setBounds(393, 156, 150, 20);
-		add(txtCodDepart);
-		txtCodDepart.setColumns(10);
-		
-		texNombreDepart = new JTextField();
-		texNombreDepart.setBounds(393, 206, 150, 20);
-		add(texNombreDepart);
-		texNombreDepart.setColumns(10);
-		
-		textLocDepart = new JTextField();
-		textLocDepart.setBounds(393, 256, 150, 20);
-		add(textLocDepart);
-		textLocDepart.setColumns(10);
-		
-		btnDarDeAlta = new JButton("Dar de alta");
-		btnDarDeAlta.setBounds(349, 320, 89, 23);
-		add(btnDarDeAlta);
-		
-		
 	}
 	
 	private void instanciarObjetos() {
+		lblTituloAltaDept = new JLabel("FORMULARIO ALTA DEPARTAMENTO");
+		lblTituloAltaDept.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTituloAltaDept.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblTituloAltaDept.setBounds(0, 81, 800, 36);
+		add(lblTituloAltaDept);
 		
+		lblCodDpto = new JLabel("Código");
+		lblCodDpto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCodDpto.setBounds(250, 150, 130, 30);
+		add(lblCodDpto);
+		
+		lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNombre.setBounds(250, 200, 130, 30);
+		add(lblNombre);
+		
+		lblLocalizacion = new JLabel("Localización");
+		lblLocalizacion.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblLocalizacion.setBounds(250, 250, 130, 30);
+		add(lblLocalizacion);
+		
+		txtCodDpto = new JTextField();
+		txtCodDpto.setBounds(400, 150, 70, 30);
+		add(txtCodDpto);
+		txtCodDpto.setColumns(10);
+		
+		txtNombreDpto = new JTextField();
+		txtNombreDpto.setBounds(400, 200, 250, 30);
+		add(txtNombreDpto);
+		txtNombreDpto.setColumns(10);
+		
+		btnDarDeAlta = new JButton("Dar de alta");
+		btnDarDeAlta.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnDarDeAlta.setBounds(334, 336, 150, 36);
+		btnDarDeAlta.setActionCommand("alta");
+		add(btnDarDeAlta);
+		
+		cmbLocalizacion = new JComboBox<String>();
+		cmbLocalizacion.setBounds(400, 249, 250, 30);
+		add(cmbLocalizacion);
 	}
 }
