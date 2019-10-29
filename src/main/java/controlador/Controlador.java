@@ -14,6 +14,7 @@ public class Controlador {
 	
 	private ControladorMenu cMenu;
 	private ControladorGestionDepartamentos cGestDptos;
+	private ControladorGenerarInforme cGenerarInforme;
 	public ControladorVerDepartamento cVerDpto;
 	public ControladorAltaDepartamento cAltaDpto;
 	
@@ -33,6 +34,8 @@ public class Controlador {
 		cGestDptos = new ControladorGestionDepartamentos(vista, this);
 		cVerDpto = new ControladorVerDepartamento(modelo, vista);
 		cAltaDpto = new ControladorAltaDepartamento(modelo, vista);
+		cGenerarInforme = new ControladorGenerarInforme(vista, modelo);
+
 	}
 
 	private void initListeners() {

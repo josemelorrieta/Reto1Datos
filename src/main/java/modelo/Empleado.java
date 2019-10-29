@@ -76,6 +76,17 @@ public class Empleado {
 	public boolean isJefe() {
 		return jefe;
 	}
+	
+	public String respuestaJefe() {
+		String respuesta = "";
+		
+		if (isJefe())
+			respuesta = " Sí.";
+		else
+			respuesta = " No.";
+		
+		return respuesta;
+	}
 
 	public void setJefe(boolean jefe) {
 		this.jefe = jefe;
