@@ -27,6 +27,7 @@ public class ControladorMenu {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			opcion = e.getActionCommand();
+			botonesNoMenu();
 			
 			switch (opcion) {
 				case "gestDepart":
@@ -43,5 +44,10 @@ public class ControladorMenu {
 			
 		}
 		
+	}
+	
+	private void botonesNoMenu() {
+		vista.pBotones.btnAtras.setVisible(true);
+		vista.pBotones.btnSalir.setVisible(false);
 	}
 }

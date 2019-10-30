@@ -13,7 +13,7 @@ public class PanelBotones extends JPanel {
 	private static final long serialVersionUID = 4L;
 
 	public JButton btnAtras;
-	public JButton btnSiguiente;
+	public JButton btnSalir;
 	
 	public PanelBotones() {
 		setPreferredSize(new Dimension(800, 80));
@@ -25,12 +25,13 @@ public class PanelBotones extends JPanel {
 		btnAtras = new JButton("ANTERIOR");
 		btnAtras.setBounds(50,25,100,25);
 		btnAtras.setActionCommand("ATRAS");
+		btnAtras.setVisible(false);
 		add(btnAtras);
 		
-		btnSiguiente = new JButton("SIGUIENTE");
-		btnSiguiente.setBounds(650,25,100,25);
-		btnSiguiente.setActionCommand("SIGUIENTE");
-		add(btnSiguiente);
+		btnSalir = new JButton("SALIR");
+		btnSalir.setBounds(650,25,100,25);
+		btnSalir.setActionCommand("SALIR");
+		add(btnSalir);
 	}
 
 }

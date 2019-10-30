@@ -44,6 +44,7 @@ public class ControladorAltaDepartamento {
 		vista.pCentral.pAltaDepart.cmbLocalizacion.removeAll();
 		
 		nombresCentros.clear();
+		vista.pCentral.pAltaDepart.cmbLocalizacion.removeAllItems();
 		
 		for (Centro centro: this.modelo.centros) {
 			if (!nombresCentros.contains(centro.getNombre()))

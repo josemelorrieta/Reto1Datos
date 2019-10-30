@@ -40,7 +40,7 @@ public class Controlador {
 
 	private void initListeners() {
 		vista.pBotones.btnAtras.addActionListener(new ListenerBotonesMenu());
-		vista.pBotones.btnSiguiente.addActionListener(new ListenerBotonesMenu());
+		vista.pBotones.btnSalir.addActionListener(new ListenerBotonesMenu());
 	}
 
 	private class ListenerBotonesMenu implements ActionListener {
@@ -50,22 +50,39 @@ public class Controlador {
 			
 			switch (origen) {
 				case "ATRAS":
-					if (vista.pCentral.currentIndex == 2)
+					if (vista.pCentral.currentIndex == 2) {
 						vista.pCentral.changePanel("1");
-					if (vista.pCentral.currentIndex == 3)
+						botonesMenuPpal();
+					}
+					
+					if (vista.pCentral.currentIndex == 3) {
 						vista.pCentral.changePanel("2");
-					if (vista.pCentral.currentIndex == 4)
+					}
+					
+					if (vista.pCentral.currentIndex == 4) {
 						vista.pCentral.changePanel("2");
-					if (vista.pCentral.currentIndex == 5)
+					}
+					
+					if (vista.pCentral.currentIndex == 5) {
 						vista.pCentral.changePanel("1");
-					if (vista.pCentral.currentIndex == 6)
+						botonesMenuPpal();
+					}
+					
+					if (vista.pCentral.currentIndex == 6) {
 						vista.pCentral.changePanel("5");
-					if (vista.pCentral.currentIndex == 7)
+					}
+					
+					if (vista.pCentral.currentIndex == 7) {
 						vista.pCentral.changePanel("5");
-					if (vista.pCentral.currentIndex == 8)
+					}
+					
+					if (vista.pCentral.currentIndex == 8) {
 						vista.pCentral.changePanel("1");
+						botonesMenuPpal();
+					}
 					break;
-				case "SIGUIENTE":
+				case "SALIR":
+					System.exit(0);
 					break;
 			}
 		}
@@ -96,6 +113,11 @@ public class Controlador {
 		modelo.empleados = modelo.conBD.cargarEmpleados(Modelo.bd, modelo.cargos, modelo.dptos);
 		//fijar responsables a los empleados
 		// ojo al desplegable de centros que no se limpia
+	}
+	
+	private void botonesMenuPpal() {
+		vista.pBotones.btnAtras.setVisible(false);
+		vista.pBotones.btnSalir.setVisible(true);
 	}
 	
 }
