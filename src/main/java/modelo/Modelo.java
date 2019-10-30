@@ -16,6 +16,7 @@ public class Modelo {
 	
 	public Modelo() {
 		bd = ConsultaBD.getSingletonInstance();
+		
 		initModelos();
 	}
 	

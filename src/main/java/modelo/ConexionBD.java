@@ -79,6 +79,7 @@ public class ConexionBD {
 		EmpleadoBD[] arrayEmpleados;
 		Cargo cargo = null;
 		Departamento departamento = null;
+		Empleado responsable = null;
 		boolean esJefe = false;
 		Date fecha = null;
 		SimpleDateFormat formatter = new SimpleDateFormat("YYYY-mm-dd");
@@ -113,9 +114,16 @@ public class ConexionBD {
 				e.printStackTrace();
 			}
 			
-			empleados.add(new Empleado(emple.getDni(), emple.getNombre(), emple.getSueldo(), cargo, departamento, esJefe, null, fecha));	
+			if (!emple.getCargo().equals("C001")) {
+				for (Empleado resp: empleados) {
+					if (resp.getDni().equals(emple.getResponsable())) {
+						responsable = resp;
+					}
+				}
+			}
+			
+			empleados.add(new Empleado(emple.getDni(), emple.getNombre(), emple.getSueldo(), cargo, departamento, esJefe, responsable, fecha));
 		}
-		
 		
 		return empleados;		
 	}

@@ -51,73 +51,65 @@ public class ControladorGenerarInforme {
 		FileWriter fichero = null;
 		String ruta = elegirCarpeta();
 		
-		try {
-			fichero = new FileWriter(ruta + "\\Informe departamentos.txt");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if (fichero != null) {
-			BufferedWriter writer = new BufferedWriter(fichero);
-			PrintWriter printW = new PrintWriter(writer);
-			printW.println("**************************************************");
-			printW.println("*		INFORME DEPARTAMENTOS		 *");
-			printW.println("**************************************************");
+		if (!ruta.equals("")) {
 			try {
+				fichero = new FileWriter(ruta + "\\Informe departamentos.txt");
+				
+				BufferedWriter writer = new BufferedWriter(fichero);
+				PrintWriter printW = new PrintWriter(writer);
+				printW.println("**************************************************");
+				printW.println("*		INFORME DEPARTAMENTOS		 *");
+				printW.println("**************************************************");
+				
 				for (int i=0;i<dptos.size();i++) {
 					
-					printW.println("Código: " + dptos.get(i).getCodigo());
+					printW.println("CÃ³digo: " + dptos.get(i).getCodigo());
 					printW.println("Nombre: " + dptos.get(i).getNombre());
 					
-					printW.println("Localización del centro:");
-					printW.println("	Código del centro: " + dptos.get(i).getLocalizacion().getCodigo());
+					printW.println("LocalizaciÃ³n del centro:");
+					printW.println("	CÃ³digo del centro: " + dptos.get(i).getLocalizacion().getCodigo());
 					printW.println("	Nombre del centro: " + dptos.get(i).getLocalizacion().getNombre());
 					printW.println();
 					printW.println("**************************************************");
 					
 					printW.println();
 				}
+				
 				writer.close();
-			System.out.println("El Informe departamentos.txt se generó correctamente");
+				System.out.println("El fichero " + ruta + "\\Informe departamentos.txt se generÃ³ correctamente");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				System.out.println("Hubo un error a la hora de generar el fichero.");
 				e.printStackTrace();
 			}
-		} else {
-			System.out.println("Hubo un error a la hora de generar el fichero.");
 		}
 	}
 	
 	public void generarInformeEmple(ArrayList<Empleado> emple) {
 		FileWriter fichero = null;
+		BufferedWriter writer = null;
 		String ruta = elegirCarpeta();
 		
-		try {
-			fichero = new FileWriter(ruta + "\\Informe empleados.txt");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if (fichero != null) {
-			BufferedWriter writer = new BufferedWriter(fichero);
-			PrintWriter printW = new PrintWriter(writer);
-			printW.println("**************************************************");
-			printW.println("*		INFORME EMPLEADOS		 *");
-			printW.println("**************************************************");
+		if (!ruta.equals("")) {
 			try {
+				fichero = new FileWriter(ruta + "\\Informe empleados.txt");
+					
+				writer = new BufferedWriter(fichero);
+				PrintWriter printW = new PrintWriter(writer);
+				printW.println("**************************************************");
+				printW.println("*		INFORME EMPLEADOS		 *");
+				printW.println("**************************************************");
+				
 				for (int i=0;i<emple.size();i++) {
 					
 					printW.println("DNI: " + emple.get(i).getDni());
 					printW.println("Nombre: " + emple.get(i).getNombre());
-					printW.println("Sueldo: " + emple.get(i).getSueldo() + " €");
+					printW.println("Sueldo: " + emple.get(i).getSueldo() + " â‚¬");
 					printW.println("Cargo: " + emple.get(i).getCargo().getNombre());
 					printW.println("Departamento: " );
-					printW.println("	Código: " + emple.get(i).getDepartamento().getCodigo());
+					printW.println("	CÃ³digo: " + emple.get(i).getDepartamento().getCodigo());
 					printW.println("	Nombre: " + emple.get(i).getDepartamento().getNombre());
-					printW.println("Localización del centro:");
-					printW.println("	Código del centro: " + emple.get(i).getDepartamento().getLocalizacion().getCodigo());
+					printW.println("LocalizaciÃ³n del centro:");
+					printW.println("	CÃ³digo del centro: " + emple.get(i).getDepartamento().getLocalizacion().getCodigo());
 					printW.println("	Nombre del centro: " + emple.get(i).getDepartamento().getLocalizacion().getNombre());
 					printW.println("Jefe: " + emple.get(i).respuestaJefe());
 					printW.println("Responsable: " );
@@ -139,15 +131,19 @@ public class ControladorGenerarInforme {
 					
 					printW.println();
 				}
-				writer.close();
-				System.out.println("El Informe empleados.txt se generó correctamente");
+				System.out.println("El fichero " + ruta + "\\Informe empleados.txt se generÃ³ correctamente");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} finally {
+				try {
+					if (writer != null)
+						writer.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-		} else {
-			System.out.println("Hubo un error a la hora de generar el fichero.");
-		}
+		} 
 	}
 	
 	public String elegirCarpeta() {
@@ -157,9 +153,11 @@ public class ControladorGenerarInforme {
 		
 		fileChooser.showDialog(null, "Seleccionar");
 		
-		System.out.println(fileChooser.getSelectedFile().getAbsolutePath());
-		
-		return fileChooser.getSelectedFile().getAbsolutePath();
+		if (fileChooser.getSelectedFile() != null)
+			return fileChooser.getSelectedFile().getAbsolutePath();
+		else
+			return "";
+
 	}
 	
 }

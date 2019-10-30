@@ -111,8 +111,7 @@ public class Controlador {
 		
 		modelo.dptos = modelo.conBD.cargarDptos(Modelo.bd, modelo.centros);
 		modelo.empleados = modelo.conBD.cargarEmpleados(Modelo.bd, modelo.cargos, modelo.dptos);
-		//fijar responsables a los empleados
-		// ojo al desplegable de centros que no se limpia
+		
 	}
 	
 	private void botonesMenuPpal() {

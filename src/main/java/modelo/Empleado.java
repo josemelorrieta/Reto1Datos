@@ -81,7 +81,7 @@ public class Empleado {
 		String respuesta = "";
 		
 		if (isJefe())
-			respuesta = " S�.";
+			respuesta = " Sí.";
 		else
 			respuesta = " No.";
 		
