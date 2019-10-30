@@ -17,6 +17,7 @@ public class PanelCentral extends JPanel {
 	
 	public PanelMenu pMenu;
 	public PanelGestionDepartamentos pGestionDptos;
+	public PanelGestionEmpleados pGestionEmple;
 	public PanelAltaDepartamento pAltaDepart;
 	public PanelAltaEmpleado pAltaEmpleado;
 	public PanelVerDepartamento pVerDepart;
@@ -44,6 +45,9 @@ public class PanelCentral extends JPanel {
 		
 		pVerDepart = new PanelVerDepartamento();
 		add(pVerDepart, "4");
+		
+		pGestionEmple = new PanelGestionEmpleados();
+		add(pGestionEmple, "5");
 		
 		pAltaEmpleado = new PanelAltaEmpleado();
 		add(pAltaEmpleado, "6");

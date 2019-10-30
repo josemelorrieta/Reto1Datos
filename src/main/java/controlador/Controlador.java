@@ -14,9 +14,12 @@ public class Controlador {
 	
 	private ControladorMenu cMenu;
 	private ControladorGestionDepartamentos cGestDptos;
+	private ControladorGestionEmpleados cGestEmple;
 	private ControladorGenerarInforme cGenerarInforme;
 	public ControladorVerDepartamento cVerDpto;
 	public ControladorAltaDepartamento cAltaDpto;
+	public ControladorVerEmpleados cVerEmple;
+	public ControladorAltaEmpleado cAltaEmple;
 	
 	public Controlador (VentanaPpal vista, Modelo modelo) {
 		this.vista = vista;
@@ -32,10 +35,12 @@ public class Controlador {
 	private void initControladores() {
 		cMenu = new ControladorMenu(vista);
 		cGestDptos = new ControladorGestionDepartamentos(vista, this);
+		cGestEmple = new ControladorGestionEmpleados(vista, this);
 		cVerDpto = new ControladorVerDepartamento(modelo, vista);
 		cAltaDpto = new ControladorAltaDepartamento(modelo, vista);
+		cAltaEmple = new ControladorAltaEmpleado(modelo, vista);
+		cVerEmple = new ControladorVerEmpleados(modelo, vista);
 		cGenerarInforme = new ControladorGenerarInforme(vista, modelo);
-
 	}
 
 	private void initListeners() {

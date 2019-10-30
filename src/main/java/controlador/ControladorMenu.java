@@ -33,7 +33,7 @@ public class ControladorMenu {
 				case "gestDepart":
 					vista.pCentral.changePanel("2");
 					break;
-				case "gestEmple": 
+				case "gestEmple":
 					vista.pCentral.changePanel("5");
 					break;
 				case "informes":

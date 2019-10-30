@@ -18,10 +18,10 @@ public class PanelAltaEmpleado extends JPanel {
 	 */
 	private static final long serialVersionUID = 7L;
 	
-	public  JLabel lblTituloAltaEmple, lblNCodigoEmple,lblNombreEmple, lblApellidosEmple,lblSueldo, lblDepart, lblCargo, lblesJefe, lblJefeAsignado ;
-	public JTextField txtCodEmple,txtNombreEmple, txtApellidosEmple, txtSueldo, txtCargo;
+	public  JLabel lblTituloAltaEmple, lblNCodigoEmple,lblNombreEmple,lblSueldo, lblDepart, lblCargo, lblesJefe, lblJefeAsignado ;
+	public JTextField txtCodEmple,txtNombreEmple, txtSueldo, txtCargo;
 	public JComboBox comboBoxDepartamentos, comboBoxJefeSiNo, comboBoxJefeAsignado;
-	public JButton btnNewButton;
+	public JButton btnAlta;
 
 
 	/**
@@ -32,42 +32,47 @@ public class PanelAltaEmpleado extends JPanel {
 		setLayout(null);
 		
 		lblTituloAltaEmple = new JLabel("FORMULARIO ALTA EMPLEADOS");
-		lblTituloAltaEmple.setBounds(283, 0, 167, 36);
+		lblTituloAltaEmple.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTituloAltaEmple.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblTituloAltaEmple.setBounds(0, 0, 800, 36);
 		add(lblTituloAltaEmple);
 		
-		lblNCodigoEmple = new JLabel("C\u00F3digo de empleado:");
-		lblNCodigoEmple.setBounds(209, 42, 118, 14);
+		lblNCodigoEmple = new JLabel("DNI");
+		lblNCodigoEmple.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNCodigoEmple.setBounds(150, 80, 150, 30);
 		add(lblNCodigoEmple);
 		
 		lblNombreEmple = new JLabel("Nombre:");
-		lblNombreEmple.setBounds(209, 92, 118, 14);
+		lblNombreEmple.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNombreEmple.setBounds(150, 90, 150, 30);
 		add(lblNombreEmple);
 		
-		lblApellidosEmple = new JLabel("Apellidos:");
-		lblApellidosEmple.setBounds(209, 142, 118, 14);
-		add(lblApellidosEmple);
-		
 		lblSueldo = new JLabel("Sueldo:");
+		lblSueldo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblSueldo.setHorizontalAlignment(SwingConstants.LEFT);
-		lblSueldo.setBounds(209, 192, 118, 14);
+		lblSueldo.setBounds(150, 190, 150, 30);
 		add(lblSueldo);
 		
 		lblDepart = new JLabel("Departamento:");
+		lblDepart.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblDepart.setHorizontalAlignment(SwingConstants.LEFT);
-		lblDepart.setBounds(209, 242, 118, 14);
+		lblDepart.setBounds(150, 240, 150, 30);
 		add(lblDepart);
 		
 		lblCargo = new JLabel("Cargo:");
+		lblCargo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCargo.setHorizontalAlignment(SwingConstants.LEFT);
-		lblCargo.setBounds(209, 292, 118, 14);
+		lblCargo.setBounds(150, 290, 150, 30);
 		add(lblCargo);
 		
 		lblesJefe = new JLabel("\u00BFEs jefe?");
+		lblesJefe.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblesJefe.setHorizontalAlignment(SwingConstants.LEFT);
 		lblesJefe.setBounds(209, 342, 118, 14);
 		add(lblesJefe);
 		
 		lblJefeAsignado = new JLabel("Jefe asignado:");
+		lblJefeAsignado.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblJefeAsignado.setHorizontalAlignment(SwingConstants.LEFT);
 		lblJefeAsignado.setBounds(536, 342, 118, 14);
 		add(lblJefeAsignado);
@@ -89,19 +94,15 @@ public class PanelAltaEmpleado extends JPanel {
 		//TextFields
 		
 		txtCodEmple = new JTextField();
-		txtCodEmple.setBounds(359, 42, 150, 20);
+		txtCodEmple.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtCodEmple.setBounds(330, 40, 150, 30);
 		add(txtCodEmple);
 		txtCodEmple.setColumns(10);
 		
 		txtNombreEmple = new JTextField();
 		txtNombreEmple.setColumns(10);
-		txtNombreEmple.setBounds(359, 92, 150, 20);
+		txtNombreEmple.setBounds(330, 90, 250, 30);
 		add(txtNombreEmple);
-		
-		txtApellidosEmple = new JTextField();
-		txtApellidosEmple.setColumns(10);
-		txtApellidosEmple.setBounds(359, 142, 150, 20);
-		add(txtApellidosEmple);
 		
 		txtSueldo = new JTextField();
 		txtSueldo.setColumns(10);
@@ -115,9 +116,10 @@ public class PanelAltaEmpleado extends JPanel {
 		
 		//Buttons
 		
-		btnNewButton = new JButton("Dar de alta empleado");
-		btnNewButton.setBounds(283, 388, 176, 23);
-		add(btnNewButton);
+		btnAlta = new JButton("Dar de alta empleado");
+		btnAlta.setBounds(283, 388, 176, 23);
+		btnAlta.setActionCommand("alta");
+		add(btnAlta);
 		instanciarObjetos();
 		
 		
