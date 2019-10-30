@@ -71,8 +71,9 @@ public class ControladorAltaDepartamento {
 			if (Modelo.bd.guardarDepartamentos(dptos) == 1) {
 				this.modelo.dptos.add(dptos.get(0));
 				JOptionPane.showMessageDialog(this.vista, "El departamento se ha guardado en la base de datos", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);
+				initAltaDpto();
 			} else {
-				JOptionPane.showMessageDialog(this.vista, "El Departamento no se ha guardado en la base de datos.", "¡ATENCIÓN!", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this.vista, "ERROR al guardar el departamento en la base de datos.", "¡ATENCIÓN!", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

@@ -19,8 +19,8 @@ public class PanelAltaEmpleado extends JPanel {
 	private static final long serialVersionUID = 7L;
 	
 	public  JLabel lblTituloAltaEmple, lblNCodigoEmple,lblNombreEmple,lblSueldo, lblDepart, lblCargo, lblesJefe, lblJefeAsignado ;
-	public JTextField txtCodEmple,txtNombreEmple, txtSueldo, txtCargo;
-	public JComboBox comboBoxDepartamentos, comboBoxJefeSiNo, comboBoxJefeAsignado;
+	public JTextField txtCodEmple,txtNombreEmple, txtSueldo;
+	public JComboBox<String> cmbCargos, cmbDptos, cmbJefe, cmbResponsable;
 	public JButton btnAlta;
 
 
@@ -39,85 +39,88 @@ public class PanelAltaEmpleado extends JPanel {
 		
 		lblNCodigoEmple = new JLabel("DNI");
 		lblNCodigoEmple.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNCodigoEmple.setBounds(150, 80, 150, 30);
+		lblNCodigoEmple.setBounds(150, 50, 150, 30);
 		add(lblNCodigoEmple);
 		
 		lblNombreEmple = new JLabel("Nombre:");
 		lblNombreEmple.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNombreEmple.setBounds(150, 90, 150, 30);
+		lblNombreEmple.setBounds(150, 100, 150, 30);
 		add(lblNombreEmple);
 		
 		lblSueldo = new JLabel("Sueldo:");
 		lblSueldo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblSueldo.setHorizontalAlignment(SwingConstants.LEFT);
-		lblSueldo.setBounds(150, 190, 150, 30);
+		lblSueldo.setBounds(150, 150, 150, 30);
 		add(lblSueldo);
 		
 		lblDepart = new JLabel("Departamento:");
 		lblDepart.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblDepart.setHorizontalAlignment(SwingConstants.LEFT);
-		lblDepart.setBounds(150, 240, 150, 30);
+		lblDepart.setBounds(150, 200, 150, 30);
 		add(lblDepart);
 		
 		lblCargo = new JLabel("Cargo:");
 		lblCargo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCargo.setHorizontalAlignment(SwingConstants.LEFT);
-		lblCargo.setBounds(150, 290, 150, 30);
+		lblCargo.setBounds(150, 250, 150, 30);
 		add(lblCargo);
 		
 		lblesJefe = new JLabel("\u00BFEs jefe?");
 		lblesJefe.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblesJefe.setHorizontalAlignment(SwingConstants.LEFT);
-		lblesJefe.setBounds(209, 342, 118, 14);
+		lblesJefe.setBounds(120, 300, 90, 30);
 		add(lblesJefe);
 		
 		lblJefeAsignado = new JLabel("Jefe asignado:");
 		lblJefeAsignado.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblJefeAsignado.setHorizontalAlignment(SwingConstants.LEFT);
-		lblJefeAsignado.setBounds(536, 342, 118, 14);
+		lblJefeAsignado.setBounds(330, 300, 120, 30);
 		add(lblJefeAsignado);
 		
 		//ComboBoxs
 		
-		comboBoxDepartamentos = new JComboBox();
-		comboBoxDepartamentos.setBounds(359, 242, 150, 20);
-		add(comboBoxDepartamentos);
+		cmbDptos = new JComboBox();
+		cmbDptos.setBounds(330, 200, 150, 30);
+		add(cmbDptos);
 		
-		comboBoxJefeSiNo = new JComboBox();
-		comboBoxJefeSiNo.setBounds(359, 336, 150, 20);
-		add(comboBoxJefeSiNo);
+		cmbJefe = new JComboBox();
+		cmbJefe.setBounds(218, 300, 50, 30);
+		cmbJefe.addItem("SI");
+		cmbJefe.addItem("NO");
+		add(cmbJefe);
 		
-		comboBoxJefeAsignado = new JComboBox();
-		comboBoxJefeAsignado.setBounds(617, 339, 150, 20);
-		add(comboBoxJefeAsignado);
+		cmbResponsable = new JComboBox();
+		cmbResponsable.setBounds(460, 300, 250, 30);
+		add(cmbResponsable);
+		
+		cmbCargos = new JComboBox();
+		cmbCargos.setBounds(330, 250, 150, 30);
+		add(cmbCargos);
 		
 		//TextFields
 		
 		txtCodEmple = new JTextField();
 		txtCodEmple.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtCodEmple.setBounds(330, 40, 150, 30);
+		txtCodEmple.setBounds(330, 50, 150, 30);
 		add(txtCodEmple);
 		txtCodEmple.setColumns(10);
 		
 		txtNombreEmple = new JTextField();
 		txtNombreEmple.setColumns(10);
-		txtNombreEmple.setBounds(330, 90, 250, 30);
+		txtNombreEmple.setBounds(330, 100, 250, 30);
 		add(txtNombreEmple);
 		
 		txtSueldo = new JTextField();
 		txtSueldo.setColumns(10);
-		txtSueldo.setBounds(359, 192, 150, 20);
+		txtSueldo.setBounds(330, 150, 150, 30);
 		add(txtSueldo);
-		
-		txtCargo = new JTextField();
-		txtCargo.setColumns(10);
-		txtCargo.setBounds(359, 292, 150, 20);
-		add(txtCargo);
+
 		
 		//Buttons
 		
 		btnAlta = new JButton("Dar de alta empleado");
-		btnAlta.setBounds(283, 388, 176, 23);
+		btnAlta.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAlta.setBounds(300, 360, 200, 30);
 		btnAlta.setActionCommand("alta");
 		add(btnAlta);
 		instanciarObjetos();
