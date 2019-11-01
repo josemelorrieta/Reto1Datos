@@ -4,6 +4,9 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class PanelGestionDepartamentos extends JPanel {
 	/**
@@ -19,13 +22,21 @@ public class PanelGestionDepartamentos extends JPanel {
 		setLayout(null);
 		
 		btnAltaDpto = new JButton("Alta nuevo departamento");
-		btnAltaDpto.setBounds(265, 120, 270, 23);
+		btnAltaDpto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAltaDpto.setBounds(265, 160, 270, 30);
 		btnAltaDpto.setActionCommand("altaDpto");
 		add(btnAltaDpto);
 		
 		btnVerDpto = new JButton("Ver departamento");
-		btnVerDpto.setBounds(265, 173, 269, 23);
+		btnVerDpto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnVerDpto.setBounds(265, 230, 269, 30);
 		btnVerDpto.setActionCommand("verDpto");
 		add(btnVerDpto);
+		
+		JLabel lblGestinDeDepartamentos = new JLabel("GESTIÓN DE DEPARTAMENTOS");
+		lblGestinDeDepartamentos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGestinDeDepartamentos.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblGestinDeDepartamentos.setBounds(10, 40, 780, 40);
+		add(lblGestinDeDepartamentos);
 	}
 }

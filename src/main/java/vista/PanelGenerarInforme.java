@@ -17,9 +17,8 @@ public class PanelGenerarInforme extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 10L;
-	
-	public JLabel lblGeneracinDeInformes;
 	public JButton btnGenerarInformeDepart,btnGenerarInformeEmple;
+	private JLabel lblGenerar;
 
 
 	/**
@@ -28,21 +27,25 @@ public class PanelGenerarInforme extends JPanel {
 	public PanelGenerarInforme() {
 		setPreferredSize(new Dimension(800, 440));
 		setLayout(null);
-		
-		lblGeneracinDeInformes = new JLabel("GENERACI\u00D3N DE INFORMES");
-		lblGeneracinDeInformes.setBounds(317, 43, 176, 36);
-		add(lblGeneracinDeInformes);
 		instanciarObjetos();
 		
 		btnGenerarInformeDepart = new JButton("Generar informe departamentos");
-		btnGenerarInformeDepart.setBounds(256, 134, 237, 23);
+		btnGenerarInformeDepart.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnGenerarInformeDepart.setBounds(275, 160, 250, 30);
 		btnGenerarInformeDepart.setActionCommand("informeDepart");
 		add(btnGenerarInformeDepart);
 		
 		btnGenerarInformeEmple = new JButton("Generar informe empleados");
-		btnGenerarInformeEmple.setBounds(256, 220, 237, 23);
+		btnGenerarInformeEmple.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnGenerarInformeEmple.setBounds(275, 230, 250, 30);
 		btnGenerarInformeEmple.setActionCommand("informeEmple");
 		add(btnGenerarInformeEmple);
+		
+		lblGenerar = new JLabel("GENERAR INFORMES");
+		lblGenerar.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGenerar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblGenerar.setBounds(10, 40, 780, 40);
+		add(lblGenerar);
 		
 		
 		

@@ -31,7 +31,7 @@ public class ControladorGestionEmpleados {
 				break;
 			case "verEmple":
 				vista.pCentral.changePanel("7");
-				controlador.cVerEmple.cambiarEmple(0);
+				controlador.cVerEmple.initPanel();
 				break;
 			}
 			
