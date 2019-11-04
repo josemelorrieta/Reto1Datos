@@ -44,6 +44,9 @@ public class ControladorVerEmpleados {
 	}
 	
 	public void initPanel() {
+		vista.pCentral.pVerEmple.txtBusqDNI.setText("");
+		vista.pCentral.pVerEmple.txtBusqNombre.setText("");
+		
 		vista.pCentral.pVerEmple.lblDNI.setText("");
 		vista.pCentral.pVerEmple.lblNombre.setText("");
 		vista.pCentral.pVerEmple.lblSueldo.setText("");
