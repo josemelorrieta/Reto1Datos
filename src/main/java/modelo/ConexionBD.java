@@ -82,7 +82,7 @@ public class ConexionBD {
 		Empleado responsable = null;
 		boolean esJefe = false;
 		Date fecha = null;
-		SimpleDateFormat formatter = new SimpleDateFormat("YYYY-mm-dd");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		
 		String json = conBD.consultarToGson("SELECT * FROM empleado");
 		arrayEmpleados = gson.fromJson(json, EmpleadoBD[].class);

@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 import modelo.Departamento;
 import modelo.Empleado;
@@ -76,9 +77,9 @@ public class ControladorGenerarInforme {
 				}
 				
 				writer.close();
-				System.out.println("El fichero " + ruta + "\\Informe departamentos.txt se generó correctamente");
+				JOptionPane.showMessageDialog(vista, "El fichero " + ruta + "\\Informe departamentos.txt se generó correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
 			} catch (IOException e) {
-				System.out.println("Hubo un error a la hora de generar el fichero.");
+				JOptionPane.showMessageDialog(vista, "Hubo un error a la hora de generar el fichero.", "Información", JOptionPane.INFORMATION_MESSAGE);
 				e.printStackTrace();
 			}
 		}
@@ -131,9 +132,9 @@ public class ControladorGenerarInforme {
 					
 					printW.println();
 				}
-				System.out.println("El fichero " + ruta + "\\Informe empleados.txt se generó correctamente");
+				JOptionPane.showMessageDialog(vista, "El fichero " + ruta + "\\Informe empleados.txt se generó correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				JOptionPane.showMessageDialog(vista, "Hubo un error a la hora de generar el fichero.", "Información", JOptionPane.INFORMATION_MESSAGE);
 				e.printStackTrace();
 			} finally {
 				try {
