@@ -6,11 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.sql.DataSource;
 
+import log.Logger;
 import modelo.Departamento;
 import modelo.Empleado;
 
@@ -20,24 +24,28 @@ public class ConsultaBD {
 	private PoolConexiones pool;
 	private DataSource datasource;
 	private Connection con;
+	private Logger logger;
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
 	
 	private ConsultaBD() {
-		pool = new PoolConexiones();
-		datasource = pool.CrearConexiones();
+		this.pool = new PoolConexiones();
+		this.datasource = pool.CrearConexiones();
+		this.logger = Logger.getSingletonInstance();
+		
 		try {
 			con = datasource.getConnection();
 		} catch (SQLException e) {
-			System.out.println(e.getCause());
-			e.printStackTrace();
+//			System.out.println(e.getCause());
+//			e.printStackTrace();
+			logger.escribirLog(dateFormat.format(new Date()) + " " + getClass().getName() + " - " + e.getStackTrace()[0].getMethodName() + " - Error en la conexión a la base de datos.");
+			
 		}
 	}
 
 	public static ConsultaBD getSingletonInstance() {
 		if (consultaBD == null) {
 			consultaBD = new ConsultaBD();
-		} else {
-			
-		}
+		} 
 		
 		return consultaBD;
 	}
@@ -73,7 +81,7 @@ public class ConsultaBD {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error en la consulta a la base de datos.");
 			return null;
 		} finally {
 			try {
