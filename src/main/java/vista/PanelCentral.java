@@ -23,6 +23,7 @@ public class PanelCentral extends JPanel {
 	public PanelVerDepartamento pVerDepart;
 	public PanelVerEmpleados pVerEmple;
 	public PanelGenerarInforme pInformes;
+	public PanelGestionLog pGestionLog;
 
 	public PanelCentral() {
 		card = new CardLayout();
@@ -57,6 +58,9 @@ public class PanelCentral extends JPanel {
 		
 		pInformes = new PanelGenerarInforme();
 		add(pInformes, "8");
+		
+		pGestionLog = new PanelGestionLog();
+		add(pGestionLog, "9");
 	}
 	
 	public void prevPanel() {

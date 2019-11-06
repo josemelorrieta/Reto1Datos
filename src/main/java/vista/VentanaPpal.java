@@ -33,7 +33,7 @@ public class VentanaPpal extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setTitle("Gestión de Empleados Elorrieta / Errekamari");
-		setVisible(true);	
+		setVisible(true);
 	}
 	
 	private void instanciarObjetos() {

@@ -20,6 +20,7 @@ public class ControladorMenu {
 		vista.pCentral.pMenu.btnGestionDepart.addActionListener(new ListenerMenu());
 		vista.pCentral.pMenu.btnGestionEmple.addActionListener(new ListenerMenu());
 		vista.pCentral.pMenu.btnGestionInfor.addActionListener(new ListenerMenu());
+		vista.pCentral.pMenu.btnLog.addActionListener(new ListenerMenu());
 	}
 	
 	private class ListenerMenu implements ActionListener {
@@ -39,7 +40,9 @@ public class ControladorMenu {
 				case "informes":
 					vista.pCentral.changePanel("8");
 					break;
-				
+				case "log":
+					vista.pCentral.changePanel("9");
+					break;
 			}
 			
 		}

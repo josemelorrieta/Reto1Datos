@@ -2,13 +2,18 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
+
+import javax.swing.JOptionPane;
 
 import modelo.Modelo;
+import vista.VentanaCargando;
 import vista.VentanaPpal;
 
 public class Controlador {
 	private Modelo modelo;
-	private VentanaPpal vista;	
+	private VentanaPpal vista;
+	private VentanaCargando vCargando;
 	
 	private String origen;
 	
@@ -20,6 +25,7 @@ public class Controlador {
 	public ControladorAltaDepartamento cAltaDpto;
 	public ControladorVerEmpleados cVerEmple;
 	public ControladorAltaEmpleado cAltaEmple;
+	public ControladorGestionLog cGestionLog;
 	
 	public Controlador (VentanaPpal vista, Modelo modelo) {
 		this.vista = vista;
@@ -41,6 +47,7 @@ public class Controlador {
 		cAltaEmple = new ControladorAltaEmpleado(modelo, vista);
 		cVerEmple = new ControladorVerEmpleados(modelo, vista);
 		cGenerarInforme = new ControladorGenerarInforme(vista, modelo);
+		cGestionLog = new ControladorGestionLog(vista, this, modelo);
 	}
 
 	private void initListeners() {
@@ -85,6 +92,11 @@ public class Controlador {
 						vista.pCentral.changePanel("1");
 						botonesMenuPpal();
 					}
+					
+					if (vista.pCentral.currentIndex == 9) {
+						vista.pCentral.changePanel("1");
+						botonesMenuPpal();
+					}
 					break;
 				case "SALIR":
 					System.exit(0);
@@ -94,6 +106,20 @@ public class Controlador {
 	}
 	
 	public void initAplicacion() {
+		// Mostrar ventana cargando...
+		vCargando = new VentanaCargando();
+		vCargando.setVisible(true);
+		try {
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e) {
+			
+		}
+		
+		if (Modelo.bd.getCon() == null) {
+			JOptionPane.showMessageDialog(vista, "No se pudo establecer conexión con la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
+		}
+		
 		// Cargar datos iniciales de fichero
 		modelo.centros = modelo.conBD.cargarCentros(Modelo.bd);
 		modelo.cargos = modelo.conBD.cargarCargos(Modelo.bd);
@@ -117,6 +143,7 @@ public class Controlador {
 		modelo.dptos = modelo.conBD.cargarDptos(Modelo.bd, modelo.centros);
 		modelo.empleados = modelo.conBD.cargarEmpleados(Modelo.bd, modelo.cargos, modelo.dptos);
 		
+		vCargando.setVisible(false);
 	}
 	
 	private void botonesMenuPpal() {

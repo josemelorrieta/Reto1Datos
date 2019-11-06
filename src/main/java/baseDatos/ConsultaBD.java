@@ -35,8 +35,6 @@ public class ConsultaBD {
 		try {
 			con = datasource.getConnection();
 		} catch (SQLException e) {
-//			System.out.println(e.getCause());
-//			e.printStackTrace();
 			logger.escribirLog(dateFormat.format(new Date()) + " " + getClass().getName() + " - " + e.getStackTrace()[0].getMethodName() + " - Error en la conexión a la base de datos.");
 			
 		}
@@ -49,7 +47,11 @@ public class ConsultaBD {
 		
 		return consultaBD;
 	}
-	
+
+	public Connection getCon() {
+		return con;
+	}
+
 	public String consultarToGson(String consulta) {
 		String resultado = "[";
 		try {

@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
+import javax.swing.JFileChooser;
+
 import baseDatos.ConsultaBD;
 
 public class Modelo {
@@ -22,6 +24,20 @@ public class Modelo {
 	
 	private void initModelos() {
 		conBD = new ConexionBD();
+	}
+	
+	public String elegirCarpeta() {
+		
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		
+		fileChooser.showDialog(null, "Seleccionar");
+		
+		if (fileChooser.getSelectedFile() != null)
+			return fileChooser.getSelectedFile().getAbsolutePath();
+		else
+			return "";
+
 	}
 
 }

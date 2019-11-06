@@ -17,6 +17,7 @@ public class PanelMenu extends JPanel {
 	public JButton btnGestionDepart;
 	public JButton btnGestionEmple;
 	public JButton btnGestionInfor;
+	public JButton btnLog;
 	public JLabel lblTituloMenu;
 
 	public PanelMenu() {
@@ -46,6 +47,12 @@ public class PanelMenu extends JPanel {
 		btnGestionInfor.setBounds(275, 240, 250, 30);
 		btnGestionInfor.setActionCommand("informes");
 		add(btnGestionInfor);
+		
+		btnLog = new JButton("Gestión Fichero Log");
+		btnLog.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnLog.setBounds(275, 300, 250, 30);
+		btnLog.setActionCommand("log");
+		add(btnLog);
 
 	}
 }

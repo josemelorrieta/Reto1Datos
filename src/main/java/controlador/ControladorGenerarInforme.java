@@ -50,7 +50,7 @@ public class ControladorGenerarInforme {
 	
 	public void generarInformeDepart(ArrayList<Departamento> dptos) {
 		FileWriter fichero = null;
-		String ruta = elegirCarpeta();
+		String ruta = modelo.elegirCarpeta();
 		
 		if (!ruta.equals("")) {
 			try {
@@ -88,7 +88,7 @@ public class ControladorGenerarInforme {
 	public void generarInformeEmple(ArrayList<Empleado> emple) {
 		FileWriter fichero = null;
 		BufferedWriter writer = null;
-		String ruta = elegirCarpeta();
+		String ruta = modelo.elegirCarpeta();
 		
 		if (!ruta.equals("")) {
 			try {
@@ -146,19 +146,6 @@ public class ControladorGenerarInforme {
 			}
 		} 
 	}
-	
-	public String elegirCarpeta() {
-		
-		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-		
-		fileChooser.showDialog(null, "Seleccionar");
-		
-		if (fileChooser.getSelectedFile() != null)
-			return fileChooser.getSelectedFile().getAbsolutePath();
-		else
-			return "";
 
-	}
 	
 }
