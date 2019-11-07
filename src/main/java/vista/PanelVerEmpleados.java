@@ -11,13 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import modelo.Empleado;
-
 public class PanelVerEmpleados extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 9L;
 	
 	private  JLabel lblTituloEmple, lblBsquedaDNI, lblBsquedaNombre;
@@ -160,7 +155,7 @@ public class PanelVerEmpleados extends JPanel {
 		lblFecha.setBounds(516, 359, 200, 30);
 		add(lblFecha);
 		
-		listEmpleados = new JList();
+		listEmpleados = new JList<String>();
 		listEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		listEmpleados.setBounds(66, 297, 270, 74);
 		add(listEmpleados);

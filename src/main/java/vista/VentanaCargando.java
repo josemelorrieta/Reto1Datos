@@ -1,21 +1,18 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Window.Type;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.border.BevelBorder;
-import java.awt.Font;
-import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
 
 public class VentanaCargando extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	public VentanaCargando() {

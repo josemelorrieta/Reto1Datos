@@ -50,7 +50,27 @@ public class FuncionesGenerales {
 			}
 		}
 		
-		return true;
+		return true;		
+	}
+	
+	public boolean borrarFichero(String ruta) {
+		File f = null;
+		
+		try {
+			f = new File(ruta);
 			
+			if (f.exists()) {
+				f.delete();
+				f.createNewFile();
+			} else {
+				return false;
+			}
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
 	}
 }

@@ -23,7 +23,7 @@ public class ControladorGestionLog {
 		this.vista = vista;
 		this.controlador = controlador;
 		this.modelo = modelo;
-		this.logger = Logger.getSingletonInstance();
+		ControladorGestionLog.logger = Logger.getSingletonInstance();
 		initListeners();
 	}
 	
@@ -50,7 +50,13 @@ public class ControladorGestionLog {
 				}
 				break;
 			case "borrar":
-				
+				if (JOptionPane.showConfirmDialog(vista, "¿Está seguro de que desea borrar el archivo de Log?", "Atención", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) == 0) {
+					if(modelo.funGen.borrarFichero(logger.rutaArchivo + "\\Log.txt")) {
+						JOptionPane.showMessageDialog(vista, "El fichero de Log ha sido borrado", "Información", JOptionPane.INFORMATION_MESSAGE);
+					} else {
+						JOptionPane.showMessageDialog(vista, "Hubo un error al borrar el fichero de Log", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+				}
 				break;
 			}
 			

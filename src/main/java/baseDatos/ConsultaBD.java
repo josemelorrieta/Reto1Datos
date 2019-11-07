@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
-import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,7 +34,7 @@ public class ConsultaBD {
 		try {
 			con = datasource.getConnection();
 		} catch (SQLException e) {
-			logger.escribirLog(dateFormat.format(new Date()) + " " + getClass().getName() + " - " + e.getStackTrace()[0].getMethodName() + " - Error en la conexión a la base de datos.");
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - " + e.getStackTrace()[0].getMethodName() + " - Error en la conexión a la base de datos.");
 			
 		}
 	}

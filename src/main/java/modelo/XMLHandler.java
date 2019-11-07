@@ -1,7 +1,5 @@
 package modelo;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import org.xml.sax.Attributes;
@@ -18,7 +16,7 @@ public class XMLHandler extends DefaultHandler {
 	private ConexionBD conBD;
 	private Departamento dpto;
 	private ArrayList<Departamento> dptos;
-	private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+//	private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
 	
    private ArrayList<Empleado> empleados = new ArrayList<Empleado>(); 
    
@@ -84,12 +82,6 @@ public class XMLHandler extends DefaultHandler {
 	   			  }	   			  
 	   		  }
 	   		break;
-	   	  /*case "fecha": try {
-	   		  empleado.setFecha(formatter.parse(valor));
-	   	  	} catch (ParseException e) {
-				e.printStackTrace();
-			}
-	   	  	break;*/
 	   	  case "empleado":
 	   		  empleados.add(empleado);
 	   }

@@ -1,15 +1,12 @@
 package vista;
 
 import java.awt.Dimension;
-
-import javax.swing.JPanel;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
+
 import javax.swing.JButton;
-import javax.swing.JTextPane;
-import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class PanelGenerarInforme extends JPanel {
 

@@ -1,15 +1,14 @@
 package vista;
 
 import java.awt.Dimension;
-
-import javax.swing.JPanel;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
+
 import javax.swing.JButton;
-import javax.swing.JTextPane;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class PanelAltaEmpleado extends JPanel {
 
@@ -79,21 +78,21 @@ public class PanelAltaEmpleado extends JPanel {
 		
 		//ComboBoxs
 		
-		cmbDptos = new JComboBox();
+		cmbDptos = new JComboBox<String>();
 		cmbDptos.setBounds(330, 200, 150, 30);
 		add(cmbDptos);
 		
-		cmbJefe = new JComboBox();
+		cmbJefe = new JComboBox<String>();
 		cmbJefe.setBounds(218, 300, 50, 30);
 		cmbJefe.addItem("SI");
 		cmbJefe.addItem("NO");
 		add(cmbJefe);
 		
-		cmbResponsable = new JComboBox();
+		cmbResponsable = new JComboBox<String>();
 		cmbResponsable.setBounds(460, 300, 250, 30);
 		add(cmbResponsable);
 		
-		cmbCargos = new JComboBox();
+		cmbCargos = new JComboBox<String>();
 		cmbCargos.setBounds(330, 250, 150, 30);
 		add(cmbCargos);
 		

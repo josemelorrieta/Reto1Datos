@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.Date;
-
 public class EmpleadoBD {
 	private String dni;
 	private String nombre;

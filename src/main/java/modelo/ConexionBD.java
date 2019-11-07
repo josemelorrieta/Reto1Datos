@@ -258,8 +258,8 @@ public class ConexionBD {
 		int resultadoDptos = 0;
 		int resultadoEmple = 0;
 		
-		resultadoDptos = modelo.bd.guardarDepartamentos(modelo.dptos);
-		resultadoEmple = modelo.bd.guardarEmpleados(modelo.empleados);
+		resultadoDptos = Modelo.bd.guardarDepartamentos(modelo.dptos);
+		resultadoEmple = Modelo.bd.guardarEmpleados(modelo.empleados);
 		
 		if (resultadoDptos == 1 && resultadoEmple == 1) {
 			return 1;

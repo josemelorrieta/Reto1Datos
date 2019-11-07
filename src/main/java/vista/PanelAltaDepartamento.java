@@ -1,15 +1,14 @@
 package vista;
 
 import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.Font;
 import javax.swing.SwingConstants;
-import javax.swing.JSpinner;
-import javax.swing.JComboBox;
 
 public class PanelAltaDepartamento extends JPanel {
 

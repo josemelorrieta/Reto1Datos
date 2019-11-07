@@ -2,10 +2,13 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JOptionPane;
 
+import log.Logger;
 import modelo.Modelo;
 import vista.VentanaCargando;
 import vista.VentanaPpal;
@@ -14,13 +17,10 @@ public class Controlador {
 	private Modelo modelo;
 	private VentanaPpal vista;
 	private VentanaCargando vCargando;
-	
+	private Logger logger;
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
 	private String origen;
 	
-	private ControladorMenu cMenu;
-	private ControladorGestionDepartamentos cGestDptos;
-	private ControladorGestionEmpleados cGestEmple;
-	private ControladorGenerarInforme cGenerarInforme;
 	public ControladorVerDepartamento cVerDpto;
 	public ControladorAltaDepartamento cAltaDpto;
 	public ControladorVerEmpleados cVerEmple;
@@ -30,6 +30,7 @@ public class Controlador {
 	public Controlador (VentanaPpal vista, Modelo modelo) {
 		this.vista = vista;
 		this.modelo = modelo;
+		this.logger = Logger.getSingletonInstance();
 		
 		initControladores();
 		initListeners();
@@ -39,14 +40,14 @@ public class Controlador {
 	}
 	
 	private void initControladores() {
-		cMenu = new ControladorMenu(vista);
-		cGestDptos = new ControladorGestionDepartamentos(vista, this);
-		cGestEmple = new ControladorGestionEmpleados(vista, this);
+		new ControladorMenu(vista);
+		new ControladorGestionDepartamentos(vista, this);
+		new ControladorGestionEmpleados(vista, this);
 		cVerDpto = new ControladorVerDepartamento(modelo, vista);
 		cAltaDpto = new ControladorAltaDepartamento(modelo, vista);
 		cAltaEmple = new ControladorAltaEmpleado(modelo, vista);
 		cVerEmple = new ControladorVerEmpleados(modelo, vista);
-		cGenerarInforme = new ControladorGenerarInforme(vista, modelo);
+		new ControladorGenerarInforme(vista, modelo);
 		cGestionLog = new ControladorGestionLog(vista, this, modelo);
 	}
 
@@ -110,7 +111,7 @@ public class Controlador {
 		vCargando = new VentanaCargando();
 		vCargando.setVisible(true);
 		try {
-			TimeUnit.SECONDS.sleep(2);
+			TimeUnit.SECONDS.sleep(1);
 		} catch (InterruptedException e) {
 			
 		}
@@ -127,13 +128,14 @@ public class Controlador {
 		modelo.empleados = modelo.conBD.cargarEmpleadosDeFichero(modelo.dptos, modelo.cargos);
 		switch (modelo.conBD.inicializarTablas(modelo)) {
 			case 0:
-				System.out.println("Error al cargar tablas");
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cargar tablas");
 				break;
 			case 1:
-				System.out.println("Tablas cargadas");
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Tablas cargadas correctamente");
 				break;
 			case 2:
-				System.out.println("Entradas duplicadas en tablas no se cargaron");
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Tablas cargadas. Entradas duplicadas en tablas no se añadieron");
+				break;
 		}
 		
 		// Cargar datos de BD en modelo
