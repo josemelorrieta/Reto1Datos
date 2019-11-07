@@ -50,13 +50,14 @@ public class ControladorGenerarInforme {
 	
 	public void generarInformeDepart(ArrayList<Departamento> dptos) {
 		FileWriter fichero = null;
-		String ruta = modelo.elegirCarpeta();
+		BufferedWriter writer = null;
+		String ruta = modelo.funGen.elegirCarpeta();
 		
 		if (!ruta.equals("")) {
 			try {
 				fichero = new FileWriter(ruta + "\\Informe departamentos.txt");
 				
-				BufferedWriter writer = new BufferedWriter(fichero);
+				writer = new BufferedWriter(fichero);
 				PrintWriter printW = new PrintWriter(writer);
 				printW.println("**************************************************");
 				printW.println("*		INFORME DEPARTAMENTOS		 *");
@@ -81,6 +82,13 @@ public class ControladorGenerarInforme {
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(vista, "Hubo un error a la hora de generar el fichero.", "Información", JOptionPane.INFORMATION_MESSAGE);
 				e.printStackTrace();
+			} finally {
+				try {
+					if (writer != null)
+						writer.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
@@ -88,7 +96,7 @@ public class ControladorGenerarInforme {
 	public void generarInformeEmple(ArrayList<Empleado> emple) {
 		FileWriter fichero = null;
 		BufferedWriter writer = null;
-		String ruta = modelo.elegirCarpeta();
+		String ruta = modelo.funGen.elegirCarpeta();
 		
 		if (!ruta.equals("")) {
 			try {

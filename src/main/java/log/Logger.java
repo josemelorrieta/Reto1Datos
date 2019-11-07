@@ -4,15 +4,10 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-
-import modelo.Centro;
-import modelo.Departamento;
 
 public class Logger {
 	private static Logger logger;
@@ -32,13 +27,19 @@ public class Logger {
 	}
 	
 	public void escribirLog(String mensaje) {
+		File f = null;
 		FileWriter fichero = null;
 		BufferedWriter writer = null;
 		PrintWriter printW = null;
 		
 		try {
-			fichero = new FileWriter("C:\\Temp\\Log.txt", true);
-		
+			f = new File(rutaArchivo + "\\Log.txt");
+			
+			if (!f.exists()) {
+				f.createNewFile();
+			}
+			
+			fichero = new FileWriter(rutaArchivo + "\\Log.txt", true);		
 			writer = new BufferedWriter(fichero);
 			printW = new PrintWriter(writer);
 			printW.println(mensaje);

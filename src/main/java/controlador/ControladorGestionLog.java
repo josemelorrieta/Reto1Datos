@@ -2,6 +2,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -15,6 +17,7 @@ public class ControladorGestionLog {
 	public Controlador controlador;
 	private static Logger logger;
 	private String ruta;
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
 	
 	public ControladorGestionLog(VentanaPpal vista, Controlador controlador, Modelo modelo) {
 		this.vista = vista;
@@ -35,12 +38,15 @@ public class ControladorGestionLog {
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "ruta":
-				ruta = modelo.elegirCarpeta();
+				ruta = modelo.funGen.elegirCarpeta();
 				if (!ruta.equals("")) {
-					logger.rutaArchivo = ruta;
-					JOptionPane.showMessageDialog(vista,  "Ruta del archivo de log cambiada a " + ruta, "Información", JOptionPane.INFORMATION_MESSAGE);
-				} else {
-					JOptionPane.showMessageDialog(vista,  "Ruta del archivo de log cambiada a " + ruta, "Aviso", JOptionPane.WARNING_MESSAGE);
+					if (modelo.funGen.guardarRutaLog(ruta)) {
+						logger.rutaArchivo = ruta;
+						JOptionPane.showMessageDialog(vista,  "Ruta del archivo de log cambiada a " + ruta, "Información", JOptionPane.INFORMATION_MESSAGE);
+					} else {
+						JOptionPane.showMessageDialog(vista,  "Error al guardar la nueva ruta del fichero de log", "Error", JOptionPane.ERROR_MESSAGE);
+						logger.escribirLog(dateFormat.format(new Date()) + " " + getClass().getName() + " - Error al guardar la ruta en el archivo gestor.ini");
+					}
 				}
 				break;
 			case "borrar":
