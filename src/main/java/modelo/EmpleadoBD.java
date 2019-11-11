@@ -9,8 +9,9 @@ public class EmpleadoBD {
 	private int jefe;
 	private String responsable;
 	private String fecha;
-	
-	public EmpleadoBD(String dni, String nombre, float sueldo, String cargo, int departamento, int jefe, String responsable, String fecha) {
+
+	public EmpleadoBD(String dni, String nombre, float sueldo, String cargo, int departamento, int jefe,
+			String responsable, String fecha) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.sueldo = sueldo;
@@ -84,5 +85,5 @@ public class EmpleadoBD {
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	
+
 }

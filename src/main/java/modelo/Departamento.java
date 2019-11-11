@@ -1,24 +1,24 @@
 package modelo;
 
 public class Departamento {
-	//Declaraci�n e inicializaci�n de atributos:
+	// Declaraci�n e inicializaci�n de atributos:
 	private int codigo;
 	private String nombre;
 	private Centro localizacion;
-	
-	//Constructor:
+
+	// Constructor:
 	public Departamento() {
-		
+
 	}
 
 	public Departamento(int codigo, String nombre, Centro localizacion) {
-		//super();
+		// super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.localizacion = localizacion;
 	}
-	
-	//getter y setters
+
+	// getter y setters
 	public int getCodigo() {
 		return codigo;
 	}
@@ -42,5 +42,5 @@ public class Departamento {
 	public void setLocalizacion(Centro localizacion) {
 		this.localizacion = localizacion;
 	}
-	
+
 }

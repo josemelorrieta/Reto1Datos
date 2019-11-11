@@ -11,35 +11,35 @@ import java.io.PrintWriter;
 
 public class Logger {
 	private static Logger logger;
-	
+
 	public String rutaArchivo;
-	
+
 	private Logger() {
 		this.rutaArchivo = leerRutaDeFichero();
 	}
-	
+
 	public static Logger getSingletonInstance() {
 		if (logger == null) {
 			logger = new Logger();
 		}
-		
+
 		return logger;
 	}
-	
+
 	public void escribirLog(String mensaje) {
 		File f = null;
 		FileWriter fichero = null;
 		BufferedWriter writer = null;
 		PrintWriter printW = null;
-		
+
 		try {
 			f = new File(rutaArchivo + "\\Log.txt");
-			
+
 			if (!f.exists()) {
 				f.createNewFile();
 			}
-			
-			fichero = new FileWriter(rutaArchivo + "\\Log.txt", true);		
+
+			fichero = new FileWriter(rutaArchivo + "\\Log.txt", true);
 			writer = new BufferedWriter(fichero);
 			printW = new PrintWriter(writer);
 			printW.println(mensaje);
@@ -54,25 +54,26 @@ public class Logger {
 					printW.close();
 				}
 			} catch (Exception e2) {
-				
+
 			}
 		}
 
 	}
-	
+
 	private String leerRutaDeFichero() {
-		
+
 		String ruta = "";
 		File fichero = new File("gestor.ini");
-		if (fichero != null) {	
+		if (fichero != null) {
 			BufferedReader bufferLectura = null;
 			try {
-				bufferLectura = new BufferedReader(new InputStreamReader(new FileInputStream(fichero.getPath()), "UTF-8"));
-					
+				bufferLectura = new BufferedReader(
+						new InputStreamReader(new FileInputStream(fichero.getPath()), "UTF-8"));
+
 				// Leer una linea del archivo
 				String linea = null;
 				linea = bufferLectura.readLine();
-					
+
 				if (linea != null) {
 					ruta = linea;
 				}
@@ -89,7 +90,7 @@ public class Logger {
 				}
 			}
 		}
-		
+
 		return ruta;
 	}
 }

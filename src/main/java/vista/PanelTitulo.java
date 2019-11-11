@@ -20,7 +20,7 @@ public class PanelTitulo extends JPanel {
 	public PanelTitulo() {
 		setPreferredSize(new Dimension(800, 80));
 		setLayout(null);
-		
+
 		JLabel lblGestinDeEmpleados = new JLabel("Gestión de Empleados (Elorrieta Errekamari)");
 		lblGestinDeEmpleados.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGestinDeEmpleados.setBounds(10, 32, 780, 25);
@@ -28,9 +28,9 @@ public class PanelTitulo extends JPanel {
 		add(lblGestinDeEmpleados);
 		instanciarObjetos();
 	}
-	
+
 	private void instanciarObjetos() {
-		
+
 	}
 
 }

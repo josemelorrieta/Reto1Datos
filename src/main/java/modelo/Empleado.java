@@ -3,7 +3,7 @@ package modelo;
 import java.util.Date;
 
 public class Empleado {
-	//Declaraci�n e inicializaci�n de atributos:
+	// Declaraci�n e inicializaci�n de atributos:
 	private String dni;
 	private String nombre;
 	private float sueldo;
@@ -12,10 +12,10 @@ public class Empleado {
 	private boolean jefe;
 	private Empleado responsable;
 	private Date fecha;
-	
-	//Constructor:
+
+	// Constructor:
 	public Empleado() {
-		
+
 	}
 
 	public Empleado(String dni, String nombre, float sueldo, Cargo cargo, Departamento departamento, boolean jefe,
@@ -31,8 +31,8 @@ public class Empleado {
 		this.fecha = fecha;
 	}
 
-	//getter y setters
-	
+	// getter y setters
+
 	public String getDni() {
 		return dni;
 	}
@@ -76,15 +76,15 @@ public class Empleado {
 	public boolean isJefe() {
 		return jefe;
 	}
-	
+
 	public String respuestaJefe() {
 		String respuesta = "";
-		
+
 		if (isJefe())
 			respuesta = " Sí.";
 		else
 			respuesta = " No.";
-		
+
 		return respuesta;
 	}
 

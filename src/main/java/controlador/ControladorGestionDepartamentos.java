@@ -8,19 +8,19 @@ import vista.VentanaPpal;
 public class ControladorGestionDepartamentos {
 	private VentanaPpal vista;
 	public Controlador controlador;
-	
+
 	public ControladorGestionDepartamentos(VentanaPpal vista, Controlador controlador) {
 		this.vista = vista;
 		this.controlador = controlador;
-		
+
 		initListeners();
 	}
-	
+
 	private void initListeners() {
 		vista.pCentral.pGestionDptos.btnAltaDpto.addActionListener(new ListenerMenu());
 		vista.pCentral.pGestionDptos.btnVerDpto.addActionListener(new ListenerMenu());
 	}
-	
+
 	private class ListenerMenu implements ActionListener {
 
 		@Override
@@ -35,8 +35,8 @@ public class ControladorGestionDepartamentos {
 				controlador.cVerDpto.cambiarDpto(0);
 				break;
 			}
-			
+
 		}
-		
+
 	}
 }

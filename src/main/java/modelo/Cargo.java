@@ -1,13 +1,13 @@
 package modelo;
 
 public class Cargo {
-	//Declaraci�n e inicializaci�n de atributos:
+	// Declaraci�n e inicializaci�n de atributos:
 	private String codigo;
 	private String nombre;
-	
-	//Constructor:
+
+	// Constructor:
 	public Cargo() {
-		
+
 	}
 
 	public Cargo(String codigo, String nombre) {
@@ -16,7 +16,7 @@ public class Cargo {
 		this.nombre = nombre;
 	}
 
-	//getter y setters
+	// getter y setters
 	public String getCodigo() {
 		return codigo;
 	}
@@ -32,8 +32,5 @@ public class Cargo {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
-	
-	
+
 }

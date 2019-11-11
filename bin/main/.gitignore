@@ -1,6 +1,5 @@
-/imagenes/
-/vista/
 /controlador/
-/baseDatos/
-/modelo/
 /log/
+/modelo/
+/vista/
+/baseDatos/

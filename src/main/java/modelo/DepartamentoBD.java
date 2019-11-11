@@ -4,7 +4,7 @@ public class DepartamentoBD {
 	private int codigo;
 	private String nombre;
 	private int localizacion;
-	
+
 	public DepartamentoBD(int codigo, String nombre, int localizacion) {
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -34,6 +34,5 @@ public class DepartamentoBD {
 	public void setLocalizacion(int localizacion) {
 		this.localizacion = localizacion;
 	}
-	
-	
+
 }

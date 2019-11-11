@@ -2,22 +2,22 @@ package modelo;
 
 public class Centro {
 
-	//Declaraci�n e inicializaci�n de atributos:
+	// Declaraci�n e inicializaci�n de atributos:
 	private int codigo;
 	private String nombre;
-	
-	//Constructor:
+
+	// Constructor:
 	public Centro() {
-		
+
 	}
-	
+
 	public Centro(int codigo, String nombre) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 	}
-	
-	//getter y setters
+
+	// getter y setters
 	public int getCodigo() {
 		return codigo;
 	}
@@ -33,5 +33,5 @@ public class Centro {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 }

@@ -10,13 +10,12 @@ public class VentanaPpal extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	//Instancias de los paneles en la VentanaPpal:
+	// Instancias de los paneles en la VentanaPpal:
 	public BorderLayout border;
 	public PanelTitulo pTitulo;
 	public PanelCentral pCentral;
 	public PanelBotones pBotones;
-		
-	
+
 	/**
 	 * Create the frame.
 	 */
@@ -24,7 +23,7 @@ public class VentanaPpal extends JFrame {
 		setParametros();
 		instanciarObjetos();
 	}
-	
+
 	private void setParametros() {
 		border = new BorderLayout();
 		getContentPane().setLayout(border);
@@ -35,17 +34,17 @@ public class VentanaPpal extends JFrame {
 		setTitle("Gestión de Empleados Elorrieta / Errekamari");
 		setVisible(true);
 	}
-	
+
 	private void instanciarObjetos() {
-		pTitulo  = new PanelTitulo();
+		pTitulo = new PanelTitulo();
 		getContentPane().add(pTitulo, BorderLayout.NORTH);
-		
+
 		pCentral = new PanelCentral();
 		getContentPane().add(pCentral, BorderLayout.CENTER);
-		
+
 		pBotones = new PanelBotones();
 		getContentPane().add(pBotones, BorderLayout.SOUTH);
-		
+
 	}
 
 }

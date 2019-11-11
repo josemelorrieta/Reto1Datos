@@ -18,7 +18,7 @@ public class ControladorGestionLog {
 	private static Logger logger;
 	private String ruta;
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
-	
+
 	public ControladorGestionLog(VentanaPpal vista, Controlador controlador, Modelo modelo) {
 		this.vista = vista;
 		this.controlador = controlador;
@@ -26,12 +26,12 @@ public class ControladorGestionLog {
 		ControladorGestionLog.logger = Logger.getSingletonInstance();
 		initListeners();
 	}
-	
+
 	private void initListeners() {
 		vista.pCentral.pGestionLog.btnRuta.addActionListener(new ListenerMenu());
 		vista.pCentral.pGestionLog.btnBorrar.addActionListener(new ListenerMenu());
 	}
-	
+
 	private class ListenerMenu implements ActionListener {
 
 		@Override
@@ -42,25 +42,31 @@ public class ControladorGestionLog {
 				if (!ruta.equals("")) {
 					if (modelo.funGen.guardarRutaLog(ruta)) {
 						logger.rutaArchivo = ruta;
-						JOptionPane.showMessageDialog(vista,  "Ruta del archivo de log cambiada a " + ruta, "Información", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(vista, "Ruta del archivo de log cambiada a " + ruta,
+								"Información", JOptionPane.INFORMATION_MESSAGE);
 					} else {
-						JOptionPane.showMessageDialog(vista,  "Error al guardar la nueva ruta del fichero de log", "Error", JOptionPane.ERROR_MESSAGE);
-						logger.escribirLog(dateFormat.format(new Date()) + " " + getClass().getName() + " - Error al guardar la ruta en el archivo gestor.ini");
+						JOptionPane.showMessageDialog(vista, "Error al guardar la nueva ruta del fichero de log",
+								"Error", JOptionPane.ERROR_MESSAGE);
+						logger.escribirLog(dateFormat.format(new Date()) + " " + getClass().getName()
+								+ " - Error al guardar la ruta en el archivo gestor.ini");
 					}
 				}
 				break;
 			case "borrar":
-				if (JOptionPane.showConfirmDialog(vista, "¿Está seguro de que desea borrar el archivo de Log?", "Atención", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) == 0) {
-					if(modelo.funGen.borrarFichero(logger.rutaArchivo + "\\Log.txt")) {
-						JOptionPane.showMessageDialog(vista, "El fichero de Log ha sido borrado", "Información", JOptionPane.INFORMATION_MESSAGE);
+				if (JOptionPane.showConfirmDialog(vista, "¿Está seguro de que desea borrar el archivo de Log?",
+						"Atención", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) == 0) {
+					if (modelo.funGen.borrarFichero(logger.rutaArchivo + "\\Log.txt")) {
+						JOptionPane.showMessageDialog(vista, "El fichero de Log ha sido borrado", "Información",
+								JOptionPane.INFORMATION_MESSAGE);
 					} else {
-						JOptionPane.showMessageDialog(vista, "Hubo un error al borrar el fichero de Log", "Error", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(vista, "Hubo un error al borrar el fichero de Log", "Error",
+								JOptionPane.ERROR_MESSAGE);
 					}
 				}
 				break;
 			}
-			
+
 		}
-		
+
 	}
 }

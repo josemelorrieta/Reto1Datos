@@ -19,31 +19,32 @@ import modelo.Empleado;
 
 public class ConsultaBD {
 	private static ConsultaBD consultaBD;
-	
+
 	private PoolConexiones pool;
 	private DataSource datasource;
 	private Connection con;
 	private Logger logger;
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
-	
+
 	private ConsultaBD() {
 		this.pool = new PoolConexiones();
 		this.datasource = pool.CrearConexiones();
 		this.logger = Logger.getSingletonInstance();
-		
+
 		try {
 			con = datasource.getConnection();
 		} catch (SQLException e) {
-			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - " + e.getStackTrace()[0].getMethodName() + " - Error en la conexión a la base de datos.");
-			
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
+					+ e.getStackTrace()[0].getMethodName() + " - Error en la conexión a la base de datos.");
+
 		}
 	}
 
 	public static ConsultaBD getSingletonInstance() {
 		if (consultaBD == null) {
 			consultaBD = new ConsultaBD();
-		} 
-		
+		}
+
 		return consultaBD;
 	}
 
@@ -82,71 +83,77 @@ public class ConsultaBD {
 			}
 
 		} catch (SQLException e) {
-			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error en la consulta a la base de datos.");
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName()
+					+ " - Error en la consulta a la base de datos.");
 			return null;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
+						+ e.getStackTrace()[0].getMethodName() + " - Error al cerrar la conexión");
+
 				return null;
 			}
 		}
 	}
-	
+
 	public int guardarDepartamentos(ArrayList<Departamento> dptos) {
 		PreparedStatement statement = null;
 		String query;
 		int resultado = 1;
 		try {
 			con = datasource.getConnection();
-			
-			
-			for (int i=0; i<dptos.size();i++) {
+
+			for (int i = 0; i < dptos.size(); i++) {
 				query = "insert into departamento values(?,?,?);";
-				
+
 				try {
 					statement = con.prepareStatement(query);
 					statement.setInt(1, dptos.get(i).getCodigo());
 					statement.setString(2, dptos.get(i).getNombre());
 					statement.setInt(3, dptos.get(i).getLocalizacion().getCodigo());
-					
+
 					statement.execute();
 				} catch (SQLIntegrityConstraintViolationException e) {
-					//TODO
-					// Escribir en el log entrada duplicada
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
+							+ e.getStackTrace()[0].getMethodName() + " - error en la query.");
+
 					resultado = 2;
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
+					+ e.getStackTrace()[0].getMethodName() + " - Error al insertar departamento.");
+
 			resultado = 0;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
+						+ e.getStackTrace()[0].getMethodName() + " - Error al cerrar conexión.");
+
 			}
 		}
-		
+
 		return resultado;
 	}
-	
+
 	public int guardarEmpleados(ArrayList<Empleado> empleados) {
 		PreparedStatement statement;
 		String query;
-		//SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		
+		// SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
 		int resultado = 1;
 		try {
 			con = datasource.getConnection();
-			
-			
-			for (int i=0; i<empleados.size();i++) {
+
+			for (int i = 0; i < empleados.size(); i++) {
 				query = "insert into empleado values(?,?,?,?,?,?,?,?);";
-				
+
 				try {
 					statement = con.prepareStatement(query);
 					statement.setString(1, empleados.get(i).getDni());
@@ -165,25 +172,31 @@ public class ConsultaBD {
 						statement.setString(7, empleados.get(i).getResponsable().getDni());
 					}
 					statement.setDate(8, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
-					
+
 					statement.execute();
 				} catch (SQLIntegrityConstraintViolationException e) {
-					// Escribir en el log entrada duplicada
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
+							+ e.getStackTrace()[0].getMethodName() + " - Error en la query.");
+
 					resultado = 2;
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
+					+ e.getStackTrace()[0].getMethodName() + " - Error al insertar empleado.");
+
 			resultado = 0;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
+						+ e.getStackTrace()[0].getMethodName() + " - Error al cerrar la conexión.");
+
 			}
 		}
-		
+
 		return resultado;
 	}
 }

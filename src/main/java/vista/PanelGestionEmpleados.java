@@ -17,23 +17,23 @@ public class PanelGestionEmpleados extends JPanel {
 
 	public JButton btnAltaEmple;
 	public JButton btnVerEmple;
-	
+
 	public PanelGestionEmpleados() {
 		setPreferredSize(new Dimension(800, 440));
 		setLayout(null);
-		
+
 		btnAltaEmple = new JButton("Alta nuevo empleado");
 		btnAltaEmple.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAltaEmple.setBounds(265, 160, 270, 30);
 		btnAltaEmple.setActionCommand("altaEmple");
 		add(btnAltaEmple);
-		
+
 		btnVerEmple = new JButton("Ver empleado");
 		btnVerEmple.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVerEmple.setBounds(265, 230, 269, 30);
 		btnVerEmple.setActionCommand("verEmple");
 		add(btnVerEmple);
-		
+
 		JLabel lblGestinDeEmpleados = new JLabel("GESTIÓN DE EMPLEADOS");
 		lblGestinDeEmpleados.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGestinDeEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 16));

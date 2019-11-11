@@ -7,19 +7,19 @@ import vista.VentanaPpal;
 public class ControladorGestionEmpleados {
 	private VentanaPpal vista;
 	public Controlador controlador;
-	
+
 	public ControladorGestionEmpleados(VentanaPpal vista, Controlador controlador) {
 		this.vista = vista;
 		this.controlador = controlador;
-		
+
 		initListeners();
 	}
-	
+
 	private void initListeners() {
 		vista.pCentral.pGestionEmple.btnAltaEmple.addActionListener(new ListenerMenu());
 		vista.pCentral.pGestionEmple.btnVerEmple.addActionListener(new ListenerMenu());
 	}
-	
+
 	private class ListenerMenu implements ActionListener {
 
 		@Override
@@ -34,8 +34,8 @@ public class ControladorGestionEmpleados {
 				controlador.cVerEmple.initPanel();
 				break;
 			}
-			
+
 		}
-		
+
 	}
 }

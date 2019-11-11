@@ -20,25 +20,25 @@ public class Controlador {
 	private Logger logger;
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
 	private String origen;
-	
+
 	public ControladorVerDepartamento cVerDpto;
 	public ControladorAltaDepartamento cAltaDpto;
 	public ControladorVerEmpleados cVerEmple;
 	public ControladorAltaEmpleado cAltaEmple;
 	public ControladorGestionLog cGestionLog;
-	
-	public Controlador (VentanaPpal vista, Modelo modelo) {
+
+	public Controlador(VentanaPpal vista, Modelo modelo) {
 		this.vista = vista;
 		this.modelo = modelo;
 		this.logger = Logger.getSingletonInstance();
-		
+
 		initControladores();
 		initListeners();
-		
+
 		initAplicacion();
-		
+
 	}
-	
+
 	private void initControladores() {
 		new ControladorMenu(vista);
 		new ControladorGestionDepartamentos(vista, this);
@@ -60,52 +60,52 @@ public class Controlador {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			origen = e.getActionCommand();
-			
+
 			switch (origen) {
-				case "ATRAS":
-					if (vista.pCentral.currentIndex == 2) {
-						vista.pCentral.changePanel("1");
-						botonesMenuPpal();
-					}
-					
-					if (vista.pCentral.currentIndex == 3) {
-						vista.pCentral.changePanel("2");
-					}
-					
-					if (vista.pCentral.currentIndex == 4) {
-						vista.pCentral.changePanel("2");
-					}
-					
-					if (vista.pCentral.currentIndex == 5) {
-						vista.pCentral.changePanel("1");
-						botonesMenuPpal();
-					}
-					
-					if (vista.pCentral.currentIndex == 6) {
-						vista.pCentral.changePanel("5");
-					}
-					
-					if (vista.pCentral.currentIndex == 7) {
-						vista.pCentral.changePanel("5");
-					}
-					
-					if (vista.pCentral.currentIndex == 8) {
-						vista.pCentral.changePanel("1");
-						botonesMenuPpal();
-					}
-					
-					if (vista.pCentral.currentIndex == 9) {
-						vista.pCentral.changePanel("1");
-						botonesMenuPpal();
-					}
-					break;
-				case "SALIR":
-					System.exit(0);
-					break;
+			case "ATRAS":
+				if (vista.pCentral.currentIndex == 2) {
+					vista.pCentral.changePanel("1");
+					botonesMenuPpal();
+				}
+
+				if (vista.pCentral.currentIndex == 3) {
+					vista.pCentral.changePanel("2");
+				}
+
+				if (vista.pCentral.currentIndex == 4) {
+					vista.pCentral.changePanel("2");
+				}
+
+				if (vista.pCentral.currentIndex == 5) {
+					vista.pCentral.changePanel("1");
+					botonesMenuPpal();
+				}
+
+				if (vista.pCentral.currentIndex == 6) {
+					vista.pCentral.changePanel("5");
+				}
+
+				if (vista.pCentral.currentIndex == 7) {
+					vista.pCentral.changePanel("5");
+				}
+
+				if (vista.pCentral.currentIndex == 8) {
+					vista.pCentral.changePanel("1");
+					botonesMenuPpal();
+				}
+
+				if (vista.pCentral.currentIndex == 9) {
+					vista.pCentral.changePanel("1");
+					botonesMenuPpal();
+				}
+				break;
+			case "SALIR":
+				System.exit(0);
+				break;
 			}
 		}
 	}
-	
+
 	public void initAplicacion() {
 		// Mostrar ventana cargando...
 		vCargando = new VentanaCargando();
@@ -113,44 +113,48 @@ public class Controlador {
 		try {
 			TimeUnit.SECONDS.sleep(1);
 		} catch (InterruptedException e) {
-			
+
 		}
-		
+
 		if (Modelo.bd.getCon() == null) {
-			JOptionPane.showMessageDialog(vista, "No se pudo establecer conexión con la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(vista, "No se pudo establecer conexión con la base de datos", "Error",
+					JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 		}
-		
+
 		// Cargar datos iniciales de fichero
 		modelo.centros = modelo.conBD.cargarCentros(Modelo.bd);
 		modelo.cargos = modelo.conBD.cargarCargos(Modelo.bd);
 		modelo.dptos = modelo.conBD.cargarDptosDeFichero(modelo.centros);
 		modelo.empleados = modelo.conBD.cargarEmpleadosDeFichero(modelo.dptos, modelo.cargos);
 		switch (modelo.conBD.inicializarTablas(modelo)) {
-			case 0:
-				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cargar tablas");
-				break;
-			case 1:
-				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Tablas cargadas correctamente");
-				break;
-			case 2:
-				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Tablas cargadas. Entradas duplicadas en tablas no se añadieron");
-				break;
+		case 0:
+			logger.escribirLog(
+					dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cargar tablas");
+			break;
+		case 1:
+			logger.escribirLog(
+					dateFormat.format(new Date()) + " - " + getClass().getName() + " - Tablas cargadas correctamente");
+			break;
+		case 2:
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName()
+					+ " - Tablas cargadas. Entradas duplicadas en tablas no se añadieron");
+			break;
 		}
-		
+
 		// Cargar datos de BD en modelo
 		modelo.dptos.clear();
 		modelo.empleados.clear();
-		
+
 		modelo.dptos = modelo.conBD.cargarDptos(Modelo.bd, modelo.centros);
 		modelo.empleados = modelo.conBD.cargarEmpleados(Modelo.bd, modelo.cargos, modelo.dptos);
-		
+
 		vCargando.setVisible(false);
 	}
-	
+
 	private void botonesMenuPpal() {
 		vista.pBotones.btnAtras.setVisible(false);
 		vista.pBotones.btnSalir.setVisible(true);
 	}
-	
+
 }

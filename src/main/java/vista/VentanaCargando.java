@@ -27,13 +27,13 @@ public class VentanaCargando extends JFrame {
 		contentPane.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Cargando datos...");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_1.setBounds(10, 11, 180, 29);
 		contentPane.add(lblNewLabel_1);
-		
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(VentanaCargando.class.getResource("/imagenes/cargando2.gif")));
 		lblNewLabel.setBounds(70, 36, 61, 53);
