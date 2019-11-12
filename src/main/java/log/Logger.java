@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -41,7 +42,7 @@ public class Logger {
 				f.createNewFile();
 			}
 			
-			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(rutaArchivo + "\\Log.txt"), "utf-8"));
+			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f, true), StandardCharsets.UTF_8));
 			printW = new PrintWriter(writer);
 			printW.println(mensaje);
 		} catch (IOException e1) {
