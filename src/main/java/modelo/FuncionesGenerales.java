@@ -50,8 +50,7 @@ public class FuncionesGenerales {
 			PrintWriter printW = new PrintWriter(writer);
 			printW.println(ruta);
 		} catch (Exception e) {
-			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-					+ e.getStackTrace()[0].getMethodName() + " - error al cargar/crear fichero.");
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - error al cargar/crear fichero.");
 
 			return false;
 		} finally {
@@ -59,8 +58,7 @@ public class FuncionesGenerales {
 				try {
 					writer.close();
 				} catch (IOException e) {
-					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-							+ e.getStackTrace()[0].getMethodName() + " - Error al cerrar fichero.");
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cerrar fichero.");
 
 				}
 			}
@@ -83,8 +81,7 @@ public class FuncionesGenerales {
 			}
 
 		} catch (Exception e) {
-			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-					+ e.getStackTrace()[0].getMethodName() + " - Error al borrar ficher.");
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al borrar ficher.");
 
 			return false;
 		}

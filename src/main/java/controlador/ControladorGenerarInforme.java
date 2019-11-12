@@ -91,16 +91,14 @@ public class ControladorGenerarInforme {
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(vista, "Hubo un error a la hora de generar el fichero.", "Información",
 						JOptionPane.INFORMATION_MESSAGE);
-				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-						+ e.getStackTrace()[0].getMethodName() + " - Hubo un error a la hora de generar el fichero.");
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Hubo un error a la hora de generar el fichero.");
 
 			} finally {
 				try {
 					if (writer != null)
 						writer.close();
 				} catch (IOException e) {
-					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-							+ e.getStackTrace()[0].getMethodName() + " - Error al cerrar writer.");
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cerrar writer.");
 
 				}
 			}
@@ -161,16 +159,14 @@ public class ControladorGenerarInforme {
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(vista, "Hubo un error a la hora de generar el fichero.", "Información",
 						JOptionPane.INFORMATION_MESSAGE);
-				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-						+ e.getStackTrace()[0].getMethodName() + " - Hubo un error a la hora de generar el fichero.");
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Hubo un error a la hora de generar el fichero.");
 
 			} finally {
 				try {
 					if (writer != null)
 						writer.close();
 				} catch (IOException e) {
-					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-							+ e.getStackTrace()[0].getMethodName() + " - Error al cerrar writer.");
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cerrar writer.");
 
 				}
 			}

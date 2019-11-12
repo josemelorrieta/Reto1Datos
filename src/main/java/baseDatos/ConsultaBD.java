@@ -10,10 +10,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import log.Logger;
 
 import javax.sql.DataSource;
 
-import log.Logger;
 import modelo.Departamento;
 import modelo.Empleado;
 
@@ -34,8 +34,7 @@ public class ConsultaBD {
 		try {
 			con = datasource.getConnection();
 		} catch (SQLException e) {
-			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-					+ e.getStackTrace()[0].getMethodName() + " - Error en la conexión a la base de datos.");
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error en la conexión a la base de datos.");
 
 		}
 	}
@@ -91,8 +90,7 @@ public class ConsultaBD {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-						+ e.getStackTrace()[0].getMethodName() + " - Error al cerrar la conexión");
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cerrar la conexión");
 
 				return null;
 			}
@@ -117,15 +115,13 @@ public class ConsultaBD {
 
 					statement.execute();
 				} catch (SQLIntegrityConstraintViolationException e) {
-					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-							+ e.getStackTrace()[0].getMethodName() + " - error en la query.");
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " -  error en la query.");
 
 					resultado = 2;
 				}
 			}
 		} catch (Exception e) {
-			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-					+ e.getStackTrace()[0].getMethodName() + " - Error al insertar departamento.");
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al insertar departamento.");
 
 			resultado = 0;
 		} finally {
@@ -133,8 +129,7 @@ public class ConsultaBD {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-						+ e.getStackTrace()[0].getMethodName() + " - Error al cerrar conexión.");
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cerrar conexión.");
 
 			}
 		}
@@ -175,15 +170,13 @@ public class ConsultaBD {
 
 					statement.execute();
 				} catch (SQLIntegrityConstraintViolationException e) {
-					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-							+ e.getStackTrace()[0].getMethodName() + " - Error en la query.");
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error en la query.");
 
 					resultado = 2;
 				}
 			}
 		} catch (Exception e) {
-			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-					+ e.getStackTrace()[0].getMethodName() + " - Error al insertar empleado.");
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al insertar empleado.");
 
 			resultado = 0;
 		} finally {
@@ -191,8 +184,7 @@ public class ConsultaBD {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-						+ e.getStackTrace()[0].getMethodName() + " - Error al cerrar la conexión.");
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cerrar la conexión.");
 
 			}
 		}

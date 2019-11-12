@@ -120,8 +120,7 @@ public class ConexionBD {
 			try {
 				fecha = formatter.parse(emple.getFecha());
 			} catch (ParseException e) {
-				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-						+ e.getStackTrace()[0].getMethodName() + " - Error al obtener fecha.");
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al obtener fecha.");
 
 			}
 
@@ -154,8 +153,7 @@ public class ConexionBD {
 					bufferLectura = new BufferedReader(
 							new InputStreamReader(new FileInputStream(fichero.getPath()), "UTF-8"));
 				} catch (UnsupportedEncodingException e2) {
-					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-							+ e2.getStackTrace()[0].getMethodName() + " - Error al abrir csv.");
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al abrir csv.");
 
 				}
 
@@ -165,8 +163,7 @@ public class ConexionBD {
 					linea = bufferLectura.readLine();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
-					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-							+ e1.getStackTrace()[0].getMethodName() + " - error al leer linea.");
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - error al leer linea.");
 
 				}
 
@@ -191,8 +188,7 @@ public class ConexionBD {
 					try {
 						linea = bufferLectura.readLine();
 					} catch (IOException e) {
-						logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-								+ e.getStackTrace()[0].getMethodName() + " - al leer linea.");
+						logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - al leer linea.");
 
 					}
 				}
@@ -205,8 +201,7 @@ public class ConexionBD {
 					try {
 						bufferLectura.close();
 					} catch (IOException e) {
-						logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-								+ e.getStackTrace()[0].getMethodName() + " - Error cerrar.");
+						logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error cerrar.");
 
 					}
 				}
@@ -269,8 +264,7 @@ public class ConexionBD {
 				empleados = handler.cargarEmpleados();
 
 			} catch (ParserConfigurationException | SAXException | IOException e) {
-				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - "
-						+ e.getStackTrace()[0].getMethodName() + " - Error al cargar empleados con fichero.");
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cargar empleados con fichero.");
 
 			}
 		}

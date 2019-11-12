@@ -8,10 +8,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Logger {
 	private static Logger logger;
-
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
 	public String rutaArchivo;
 
 	private Logger() {
@@ -44,7 +46,7 @@ public class Logger {
 			printW = new PrintWriter(writer);
 			printW.println(mensaje);
 		} catch (IOException e1) {
-			e1.printStackTrace();
+
 		} finally {
 			try {
 				if (writer != null) {
@@ -54,7 +56,7 @@ public class Logger {
 					printW.close();
 				}
 			} catch (Exception e2) {
-
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cerrar fichero.");
 			}
 		}
 
@@ -78,14 +80,14 @@ public class Logger {
 					ruta = linea;
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Ruta incorrecta.");
 			} finally {
 				// Cierro el buffer de lectura
 				if (bufferLectura != null) {
 					try {
 						bufferLectura.close();
 					} catch (IOException e) {
-						e.printStackTrace();
+						logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cerrar.");
 					}
 				}
 			}
