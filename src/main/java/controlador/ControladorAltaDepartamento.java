@@ -3,12 +3,8 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.JOptionPane;
-import log.Logger;
 
 import modelo.Centro;
 import modelo.Departamento;
@@ -19,13 +15,10 @@ public class ControladorAltaDepartamento {
 	Modelo modelo;
 	VentanaPpal vista;
 	ArrayList<String> nombresCentros = new ArrayList<String>();
-	private Logger logger;
-	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
 
 	public ControladorAltaDepartamento(Modelo modelo, VentanaPpal vista) {
 		this.modelo = modelo;
 		this.vista = vista;
-		this.logger = Logger.getSingletonInstance();
 
 		initListeners();
 	}

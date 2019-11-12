@@ -4,9 +4,10 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,7 +31,6 @@ public class Logger {
 
 	public void escribirLog(String mensaje) {
 		File f = null;
-		FileWriter fichero = null;
 		BufferedWriter writer = null;
 		PrintWriter printW = null;
 
@@ -40,9 +40,8 @@ public class Logger {
 			if (!f.exists()) {
 				f.createNewFile();
 			}
-
-			fichero = new FileWriter(rutaArchivo + "\\Log.txt", true);
-			writer = new BufferedWriter(fichero);
+			
+			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(rutaArchivo + "\\Log.txt"), "utf-8"));
 			printW = new PrintWriter(writer);
 			printW.println(mensaje);
 		} catch (IOException e1) {

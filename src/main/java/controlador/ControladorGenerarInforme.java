@@ -6,10 +6,9 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.JOptionPane;
 
@@ -88,6 +87,7 @@ public class ControladorGenerarInforme {
 				JOptionPane.showMessageDialog(vista,
 						"El fichero " + ruta + "\\Informe departamentos.txt se generó correctamente", "Información",
 						JOptionPane.INFORMATION_MESSAGE);
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Informe departamentos guardado correctamente.");
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(vista, "Hubo un error a la hora de generar el fichero.", "Información",
 						JOptionPane.INFORMATION_MESSAGE);
@@ -156,6 +156,7 @@ public class ControladorGenerarInforme {
 				JOptionPane.showMessageDialog(vista,
 						"El fichero " + ruta + "\\Informe empleados.txt se generó correctamente", "Información",
 						JOptionPane.INFORMATION_MESSAGE);
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Informe empleados guardado correctamente.");
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(vista, "Hubo un error a la hora de generar el fichero.", "Información",
 						JOptionPane.INFORMATION_MESSAGE);

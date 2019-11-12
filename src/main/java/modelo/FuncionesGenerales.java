@@ -21,9 +21,11 @@ public class FuncionesGenerales {
 		this.logger = Logger.getSingletonInstance();
 
 	}
+	
 	public String elegirCarpeta() {
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		fileChooser.setCurrentDirectory(new File("."));
 
 		fileChooser.showDialog(null, "Seleccionar");
 
