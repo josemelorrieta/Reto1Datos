@@ -129,16 +129,13 @@ public class Controlador {
 		modelo.empleados = modelo.conBD.cargarEmpleadosDeFichero(modelo.dptos, modelo.cargos);
 		switch (modelo.conBD.inicializarTablas(modelo)) {
 		case 0:
-			logger.escribirLog(
-					dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cargar tablas");
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al cargar tablas");
 			break;
 		case 1:
-			logger.escribirLog(
-					dateFormat.format(new Date()) + " - " + getClass().getName() + " - Tablas cargadas correctamente");
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Tablas cargadas correctamente");
 			break;
 		case 2:
-			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName()
-					+ " - Tablas cargadas. Entradas duplicadas en tablas no se añadieron");
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Tablas cargadas. Entradas duplicadas en tablas no se añadieron");
 			break;
 		}
 

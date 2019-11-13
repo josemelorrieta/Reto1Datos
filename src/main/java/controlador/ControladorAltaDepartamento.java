@@ -2,10 +2,13 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import log.Logger;
 import modelo.Centro;
 import modelo.Departamento;
 import modelo.Modelo;
@@ -15,10 +18,13 @@ public class ControladorAltaDepartamento {
 	Modelo modelo;
 	VentanaPpal vista;
 	ArrayList<String> nombresCentros = new ArrayList<String>();
+	private Logger logger;
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
 
 	public ControladorAltaDepartamento(Modelo modelo, VentanaPpal vista) {
 		this.modelo = modelo;
 		this.vista = vista;
+		this.logger = Logger.getSingletonInstance();
 
 		initListeners();
 	}
@@ -39,7 +45,7 @@ public class ControladorAltaDepartamento {
 	}
 
 	public void initAltaDpto() {
-		vista.pCentral.pAltaDepart.txtCodDpto.setText(Integer.toString(this.modelo.dptos.size() + 1));
+		vista.pCentral.pAltaDepart.txtCodDpto.setText(Integer.toString(Modelo.bd.nuevoNumDpto() + 1));
 		vista.pCentral.pAltaDepart.txtNombreDpto.setText("");
 		vista.pCentral.pAltaDepart.cmbLocalizacion.removeAll();
 
@@ -73,10 +79,13 @@ public class ControladorAltaDepartamento {
 				this.modelo.dptos.add(dptos.get(0));
 				JOptionPane.showMessageDialog(this.vista, "El departamento se ha guardado en la base de datos",
 						"INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Nuevo departamento " + dptos.get(0).getNombre() + " guardado en la base de datos.");
+				
 				initAltaDpto();
 			} else {
 				JOptionPane.showMessageDialog(this.vista, "ERROR al guardar el departamento en la base de datos.",
 						"¡ATENCIÓN!", JOptionPane.ERROR_MESSAGE);
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al guardar el departamento " + dptos.get(0).getNombre() + " en la base de datos.");
 			}
 		}
 	}

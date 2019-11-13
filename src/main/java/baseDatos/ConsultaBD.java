@@ -115,7 +115,7 @@ public class ConsultaBD {
 
 					statement.execute();
 				} catch (SQLIntegrityConstraintViolationException e) {
-					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " -  error en la query.");
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al insertar departamento. Violación de restricción de la BD.");
 
 					resultado = 2;
 				}
@@ -140,7 +140,6 @@ public class ConsultaBD {
 	public int guardarEmpleados(ArrayList<Empleado> empleados) {
 		PreparedStatement statement;
 		String query;
-		// SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 		int resultado = 1;
 		try {
@@ -170,7 +169,7 @@ public class ConsultaBD {
 
 					statement.execute();
 				} catch (SQLIntegrityConstraintViolationException e) {
-					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error en la query.");
+					logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al insertar empleado. Violación de restricción de la BD.");
 
 					resultado = 2;
 				}
@@ -190,5 +189,31 @@ public class ConsultaBD {
 		}
 
 		return resultado;
+	}
+	
+	public int nuevoNumDpto() {
+		int num = 0;
+		
+		try {
+			con = datasource.getConnection();
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery("SELECT max(codigo) as codigo FROM `departamento`");
+			if (rs.next()) {
+				num = rs.getInt("codigo");
+			}
+			
+		} catch(Exception e){
+			logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al leer la base de datos.");
+		} finally {
+			try {
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al leer la base de datos.");
+			}
+			
+		}
+		
+		return num;
 	}
 }

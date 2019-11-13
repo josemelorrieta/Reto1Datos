@@ -2,11 +2,13 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import log.Logger;
 import modelo.Cargo;
 import modelo.Departamento;
 import modelo.Empleado;
@@ -17,11 +19,14 @@ import vista.VentanaPpal;
 public class ControladorAltaEmpleado {
 	private Modelo modelo;
 	private VentanaPpal vista;
+	private Logger logger;
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
 
 	public ControladorAltaEmpleado(Modelo modelo, VentanaPpal vista) {
 		this.modelo = modelo;
 		this.vista = vista;
-
+		this.logger = Logger.getSingletonInstance();
+		
 		initListeners();
 	}
 
@@ -91,12 +96,13 @@ public class ControladorAltaEmpleado {
 					Float.parseFloat(panel.txtSueldo.getText()), cargo, dpto, esJefe, responsable, fecha));
 			if (Modelo.bd.guardarEmpleados(empleados) == 1) {
 				this.modelo.empleados.add(empleados.get(0));
-				JOptionPane.showMessageDialog(this.vista, "El empleado se ha guardado en la base de datos",
-						"INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this.vista, "El empleado se ha guardado en la base de datos", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Nuevo empleado " + empleados.get(0).getDni() + " guardado en la base de datos.");
+				
 				initAltaEmple();
 			} else {
-				JOptionPane.showMessageDialog(this.vista, "ERROR al guardar el empleado en la base de datos.",
-						"¡ATENCIÓN!", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this.vista, "ERROR al guardar el empleado en la base de datos.", "¡ATENCIÓN!", JOptionPane.ERROR_MESSAGE);
+				logger.escribirLog(dateFormat.format(new Date()) + " - " + getClass().getName() + " - Error al guardar el empleado " + empleados.get(0).getDni() + " en la base de datos.");
 			}
 
 		}
