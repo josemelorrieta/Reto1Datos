@@ -1,0 +1,52 @@
+-- Tabla `CENTRO`
+CREATE TABLE `centro`(
+	`codigo`int(3) NOT NULL,
+	`nombre`varchar(50),
+	CONSTRAINT `pkcodcent`PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- --------------------------------------------------------
+INSERT INTO `centro` VALUES
+(1,'Elorrieta'),
+(2,'Errekamari');
+
+-- Tabla `DEPARTAMENTO`
+CREATE TABLE `departamento` (
+	`codigo` int(3) NOT NULL,
+	`nombre` varchar(50) COLLATE utf8_bin NOT NULL,
+	`localizacion` int(5) NOT NULL,
+	CONSTRAINT `pkcoddep` PRIMARY KEY (`codigo`),
+	CONSTRAINT `fkcent` FOREIGN KEY (`localizacion`) REFERENCES `centro`(`codigo`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- --------------------------------------------------------
+
+-- Tabla `CARGO`
+CREATE TABLE `cargo` (
+	`codigo` varchar(4) NOT NULL,
+	`nombre` varchar(50) COLLATE utf8_bin NOT NULL,
+	CONSTRAINT `pkcodcarg` PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- --------------------------------------------------------
+INSERT INTO `cargo` VALUES
+('C001','Director'),
+('C002','Jefe de estiduos'),
+('C003','Secretario');
+
+-- Tabla `EMPLEADO`
+CREATE TABLE `empleado` (
+	`dni` varchar(9) NOT NULL,
+	`nombre` varchar(80) COLLATE utf8_bin NOT NULL,
+	`sueldo` int(5) NOT NULL,
+	`cargo` varchar(4) NOT NULL,
+	`departamento` int(3) NOT NULL,
+	`jefe` tinyint(1) NOT NULL,
+	`responsable` varchar(9),
+	`fecha` date NOT NULL,
+	CONSTRAINT `pkcodemp` PRIMARY KEY (`dni`),
+	CONSTRAINT `fkresp` FOREIGN KEY (`responsable`) REFERENCES `empleado`(`dni`) ON DELETE CASCADE,
+	CONSTRAINT `fkcargo` FOREIGN KEY (`cargo`) REFERENCES `cargo`(`codigo`) ON DELETE CASCADE,
+	CONSTRAINT `fkdep` FOREIGN KEY (`departamento`) REFERENCES `departamento`(`codigo`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE USER 'Reto1'@'localhost' IDENTIFIED BY 'grupo6';
+GRANT ALL PRIVILEGES ON *.* TO 'Reto1'@'localhost' IDENTIFIED BY 'grupo6' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
