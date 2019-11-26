@@ -1,1 +1,9 @@
 12/11/2019 - 09:39:20 - controlador.ControladorGenerarInforme - Informe empleados guardado correctamente.
+26/11/2019 - 09:33:51 - baseDatos.ConsultaBD - Error en la conexión a la base de datos.
+26/11/2019 - 09:41:23 - baseDatos.ConsultaBD - Error al insertar departamento. Violación de restricción de la BD.
+26/11/2019 - 09:41:23 - baseDatos.ConsultaBD - Error al insertar departamento. Violación de restricción de la BD.
+26/11/2019 - 09:41:23 - baseDatos.ConsultaBD - Error al insertar departamento. Violación de restricción de la BD.
+26/11/2019 - 09:41:23 - baseDatos.ConsultaBD - Error al insertar empleado. Violación de restricción de la BD.
+26/11/2019 - 09:41:23 - baseDatos.ConsultaBD - Error al insertar empleado. Violación de restricción de la BD.
+26/11/2019 - 09:41:23 - baseDatos.ConsultaBD - Error al insertar empleado. Violación de restricción de la BD.
+26/11/2019 - 09:41:23 - controlador.Controlador - Tablas cargadas. Entradas duplicadas en tablas no se añadieron
